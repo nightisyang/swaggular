@@ -107,16 +107,17 @@ func generateTypeScriptInterface(name string, schema Schema) {
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("export interface %s {\n", name))
 	for propName, propSchema := range schema.Properties {
-		required := ""
-		if contains(schema.Required, propName) {
-			required = " // required"
+		isRequired := contains(schema.Required, propName)
+		optionalSuffix := "?"
+		if isRequired {
+			optionalSuffix = ""
 		}
 
 		// Check if the property is a complex type (object or array of objects)
 		if propSchema.Type == "object" {
 			nestedInterfaceName := propName + "DTO"
 			generateTypeScriptInterface(nestedInterfaceName, propSchema)
-			builder.WriteString(fmt.Sprintf("  %s: %s;%s\n", propName, nestedInterfaceName, required))
+			builder.WriteString(fmt.Sprintf("  %s%s: %s;\n", propName, optionalSuffix, nestedInterfaceName))
 		} else if propSchema.Type == "array" {
 			if propSchema.Items != nil {
 				itemType := mapType(*propSchema.Items)
@@ -125,11 +126,11 @@ func generateTypeScriptInterface(name string, schema Schema) {
 					generateTypeScriptInterface(nestedInterfaceName, *propSchema.Items)
 					itemType = nestedInterfaceName
 				}
-				builder.WriteString(fmt.Sprintf("  %s: %s[];%s\n", propName, itemType, required))
+				builder.WriteString(fmt.Sprintf("  %s%s: %s[];\n", propName, optionalSuffix, itemType))
 			}
 		} else {
 			// Primitive types or arrays of primitive types
-			builder.WriteString(fmt.Sprintf("  %s: %s;%s\n", propName, mapType(propSchema), required))
+			builder.WriteString(fmt.Sprintf("  %s%s: %s;\n", propName, optionalSuffix, mapType(propSchema)))
 		}
 	}
 	builder.WriteString("}\n\n")
