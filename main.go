@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 )
 
@@ -107,17 +108,14 @@ func generateTypeScriptInterface(name string, schema Schema) {
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("export interface %s {\n", name))
 	for propName, propSchema := range schema.Properties {
-		isRequired := contains(schema.Required, propName)
-		optionalSuffix := "?"
-		if isRequired {
-			optionalSuffix = ""
-		}
+		camelCasePropName := toCamelCase(propName) // Convert to camelCase
+		nullableSuffix := " | null"
 
 		// Check if the property is a complex type (object or array of objects)
 		if propSchema.Type == "object" {
 			nestedInterfaceName := propName + "DTO"
 			generateTypeScriptInterface(nestedInterfaceName, propSchema)
-			builder.WriteString(fmt.Sprintf("  %s%s: %s;\n", propName, optionalSuffix, nestedInterfaceName))
+			builder.WriteString(fmt.Sprintf("  %s: %s%s;\n", camelCasePropName, nestedInterfaceName, nullableSuffix))
 		} else if propSchema.Type == "array" {
 			if propSchema.Items != nil {
 				itemType := mapType(*propSchema.Items)
@@ -126,11 +124,11 @@ func generateTypeScriptInterface(name string, schema Schema) {
 					generateTypeScriptInterface(nestedInterfaceName, *propSchema.Items)
 					itemType = nestedInterfaceName
 				}
-				builder.WriteString(fmt.Sprintf("  %s%s: %s[];\n", propName, optionalSuffix, itemType))
+				builder.WriteString(fmt.Sprintf("  %s: %s[]%s;\n", camelCasePropName, itemType, nullableSuffix))
 			}
 		} else {
 			// Primitive types or arrays of primitive types
-			builder.WriteString(fmt.Sprintf("  %s%s: %s;\n", propName, optionalSuffix, mapType(propSchema)))
+			builder.WriteString(fmt.Sprintf("  %s: %s%s;\n", camelCasePropName, mapType(propSchema), nullableSuffix))
 		}
 	}
 	builder.WriteString("}\n\n")
@@ -173,7 +171,7 @@ func generateAPIList(api OpenAPI) []APIWithDTO {
 
 	for path, operations := range api.Paths {
 		for method, operation := range operations {
-			functionName := createFunctionName(method, operation.OperationID)
+			functionName := createFunctionName(operation.OperationID)
 
 			var pathParams []string
 			var queryParamInterfaceBuilder strings.Builder
@@ -253,6 +251,7 @@ func generateAPIList(api OpenAPI) []APIWithDTO {
 				PayloadType:         payloadType,
 				Path:                path,
 				HasQueryParams:      hasQueryParams,
+				HttpMethod:          method,
 			})
 		}
 	}
@@ -269,6 +268,7 @@ type APIWithDTO struct {
 	PayloadType         string
 	Path                string
 	HasQueryParams      bool
+	HttpMethod          string
 }
 
 type TemplateData struct {
@@ -356,13 +356,23 @@ func serveAPIDetails(w http.ResponseWriter, r *http.Request) {
 }
 
 func toCamelCase(input string) string {
-	parts := strings.Split(input, "_")
-	for i := range parts {
-		if i > 0 {
-			parts[i] = strings.Title(parts[i])
+	// Replace underscores with spaces (for snake_case)
+	input = strings.ReplaceAll(input, "_", " ")
+
+	// Regex to find words in the string (either by space or by capital letter)
+	words := regexp.MustCompile(`[A-Za-z][^A-Z\s]*`).FindAllString(input, -1)
+
+	for i := range words {
+		if i == 0 {
+			// Make the first word lowercase
+			words[i] = strings.ToLower(words[i])
+		} else {
+			// Capitalize the first letter of subsequent words
+			words[i] = strings.Title(words[i])
 		}
 	}
-	return strings.Join(parts, "")
+
+	return strings.Join(words, "")
 }
 
 // optionalSuffix adds a question mark for optional query parameters.
@@ -382,8 +392,9 @@ func contains(slice []string, item string) bool {
 	return false
 }
 
-func createFunctionName(method, operationID string) string {
-	return strings.ToLower(method) + strings.Title(operationID)
+// Function to convert an operation ID to camel case without including the method.
+func createFunctionName(operationID string) string {
+	return toCamelCase(operationID)
 }
 
 // Main function to start the server and serve the pages.
