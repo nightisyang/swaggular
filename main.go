@@ -449,22 +449,42 @@ const indexTemplate = `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.4.0"></script>
 </head>
 <body>
-    <h1>Angular Service Code and DTO Interfaces</h1>
-    {{range .APIList}}
-        <div>
-            <button hx-get="/api-detail?api={{.FunctionName}}" hx-target="#details-{{.FunctionName}}" hx-swap="outerHTML">
-                {{.FunctionName}}
-            </button>
-            <span>{{.Path}}</span>
-            <div id="details-{{.FunctionName}}" style="margin-left: 20px;">
-                <!-- Details will be loaded here by htmx -->
+    <div class="container mt-4">
+        <h1>Angular Service Code and DTO Interfaces</h1>
+        <div class="accordion" id="apiAccordion">
+            {{range .APIList}}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{.FunctionName}}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{.FunctionName}}" aria-expanded="false" aria-controls="collapse{{.FunctionName}}" hx-get="/api-detail?api={{.FunctionName}}" hx-trigger="click once" hx-target="#details-{{.FunctionName}}" hx-swap="outerHTML">
+                        {{.FunctionName}} - {{.Path}}
+                    </button>
+                </h2>
+                <div id="collapse{{.FunctionName}}" class="accordion-collapse collapse" aria-labelledby="heading{{.FunctionName}}" data-bs-parent="#apiAccordion">
+                    <div class="accordion-body">
+                        <div id="details-{{.FunctionName}}">Loading...</div>
+                        <button class="btn btn-sm btn-primary mt-2" onclick="copyToClipboard('details-{{.FunctionName}}')">Copy to Clipboard</button>
+                    </div>
+                </div>
             </div>
+            {{end}}
         </div>
-        <hr>
-    {{end}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard!');
+            }, function(err) {
+                alert('Failed to copy text: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
 `
@@ -481,7 +501,7 @@ const apiDetailTemplate = `
       let params = httpParamBuilder(params) 
     {{end}}
     
-    return this.http.{{if .API.PayloadType}}put<{{.API.ResponseType}}>("{{.API.Path}}", payload {{if .API.HasQueryParams}}, { params } {{end}} ){{else}}get<{{.API.ResponseType}}>("{{.API.Path}}", {{if .API.HasQueryParams}} { params } {{end}}){{end}};
+    return this.http.{{.API.HttpMethod}}<{{.API.ResponseType}}>("this.baseUrl(){{.API.Path}}" {{if .API.PayloadType}}, payload{{end}}{{if .API.HasQueryParams}}, { params }{{end}});
   }
 </pre>
 {{range .DTOs}}
@@ -489,5 +509,4 @@ const apiDetailTemplate = `
 {{else}}
 <pre>No DTOs available.</pre>
 {{end}}
-<hr>
 `
