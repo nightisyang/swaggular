@@ -1,0 +1,2764 @@
+export interface AddRoundingSettingInputDTO {
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  roundingTypeCode: number | null;
+  xValue: number | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+  payoutCountrySettingCode: number | null;
+}
+
+export interface ActivePayoutCurrencySetting {
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyISO: string | null;
+  payoutCurrencyDescription: string | null;
+}
+
+export interface SolutionOutputDTO {
+  solutionCode: number | null;
+  description: string | null;
+}
+
+export interface GetTransactionLimitSettingApprovalListingOutputDTOPagedResult {
+  lastRowOnPage: number | null;
+  results: GetTransactionLimitSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+}
+
+export interface GetComplianceRequisitionEditedByUsersOutputDTO {
+  editedBy: string | null;
+  userId: number | null;
+}
+
+export interface GetExternalBankBranchDropdownOutputDTO {
+  externalBankBranchCode: string | null;
+}
+
+export interface GetActivePayoutCountrySettingListOutputDTO {
+  solutionDescription: string | null;
+  activePayoutCountrySettings: ActivePayoutCountrySetting[] | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+}
+
+export interface RequisitionType {
+  name: string | null;
+  id: number | null;
+  productSettingTypeCode: number | null;
+}
+
+export interface RejectBeneficiaryComplianceRequisition {
+  requisitionCode: string | null;
+  complianceRequisitionType: number | null;
+}
+
+export interface RequisitionOTPInputDTO {
+  requisitionCode: string | null;
+}
+
+export interface ComplianceRequisitionType {
+  complianceSettingTypeCode: number | null;
+  name: string | null;
+  id: number | null;
+}
+
+export interface GetIssuerCodeListOutputDTO {
+  issuerCode: string | null;
+  bankIssuerName: string | null;
+  issuerSettingCode: number | null;
+}
+
+export interface EditSPMSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface GetPayoutOfferTransactionChannelOutputDTO {
+  transactionChannelStatusDescription: string | null;
+  payoutOfferSettingStatusCode: number | null;
+  payoutOfferSettingStatusDescription: string | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutOfferTransactionChannelCode: number | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  transactionChannelStatusCode: number | null;
+}
+
+export interface GetBeneficiaryFilteredCountryListOutputDTO {
+  payoutCountryCode: number | null;
+  payoutCountryDescription: string | null;
+}
+
+export interface GetBankIssuerNameListOutputDTO {
+  bankIssuerName: string | null;
+}
+
+export interface GetBeneficiaryFilteredBeneficiaryTypeListOutputDTO {
+  benecificiaryTypeCode: number | null;
+  beneficiaryTypeDescription: string | null;
+}
+
+export interface GetTransactionLimitSettingApprovalListingOutputDTO {
+  editedDate: string | null;
+  finalApprovalStatusDescription: string | null;
+  limitPerMonthly: any | null;
+  transactionChannel: string | null;
+  supplyPartnerWalletName: string | null;
+  requisitionStatusDescription: string | null;
+  approveBy: string | null;
+  description: string | null;
+  limitPerTransaction: any | null;
+  limitPerDaily: any | null;
+  editorList: string[] | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletStatusCode: number | null;
+  approvalLevel: number | null;
+  createdBy: string | null;
+  payoutCountry: string | null;
+  payoutCurrency: string | null;
+  remark: string | null;
+  limitPerWeekly: any | null;
+  transactionChannelSettingStatusCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  requisitionStatus: number | null;
+  requisitionTypeCode: number | null;
+  supplyPartnerStatusCode: number | null;
+  approvalStatus: number | null;
+  finalApprovalStatus: number | null;
+  payoutCountrySettingStatusCode: number | null;
+  editedBy: string | null;
+  approveDate: string | null;
+  requisitionCode: string | null;
+  payoutCurrencySettingStatusCode: number | null;
+  supplyPartnerName: string | null;
+  createdDate: string | null;
+}
+
+export interface CountryOutputDTO {
+  countryISO2: string | null;
+  description: string | null;
+}
+
+export interface GetSPMSettingFiltersOutputDTO {
+  issuerSettingDropdowns: SPMFilterIssuerSettingDropdown[] | null;
+  supplyPartnerDropdowns: SPMFilterSupplyPartnerDropdown[] | null;
+  supplyPartnerWalletDropdowns: SPMFilterSupplyPartnerWalletDropdown[] | null;
+  transactionChannelSettingDropdowns: SPMFilterTransactionChannelSettingDropdown[] | null;
+}
+
+export interface BatchUploadDisplaySupplyPartnerManagementSettingsInputDTO {
+  solutionCode: number | null;
+  trangloEntity: string | null;
+  supplyPartnerManagementSettingsBatchList: SupplyPartnerManagementSettingsBatchDisplay[] | null;
+}
+
+export interface SupplyPartnerManagementSettingsBatchDisplayOutput {
+  errorMessage: string | null;
+  isSuccess: boolean | null;
+  spMIssuerCode: string | null;
+  spMSupplyPartnerName: string | null;
+  spMSupplyPartnerWalletName: string | null;
+  spMExternalBankCode: string | null;
+}
+
+export interface SaveBeneficiaryComplianceLimitSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface ApproveComplianceSettingRequisitionInputDTO {
+  otp: string | null;
+  requisitionGroupId: string | null;
+  requisitions: ApproveComplianceRequisition[] | null;
+}
+
+export interface EditAddIssuerSettingBranchInputDTO {
+  isAdd: boolean | null;
+  code: string | null;
+  name: string | null;
+  city: string | null;
+  swiftCode: string | null;
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: number | null;
+}
+
+export interface GetIssuerSettingsOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetIssuerSettingsOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface PayoutCountrySettingOutputDTO {
+  payoutCountryStatusCode: number | null;
+  payoutCountryStatusDescription: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+}
+
+export interface ApproveProductSettingRequisitionOutputDTO {
+  requisitionCode: string | null;
+  approvalWorkflowResult: ApprovalWorkflowResult | null;
+}
+
+export interface GetTransactionLimitSettingsOutputDTO {
+  transactionChannel: string | null;
+  limitPerWeekly: any | null;
+  transactionLimitSettingStatusCode: number | null;
+  solutionCode: number | null;
+  payoutCurrencyCode: string | null;
+  payoutCurrencySettingStatusCode: number | null;
+  transactionChannelSettingStatusCode: number | null;
+  supplyPartnerWalletName: string | null;
+  approvalStatusDescription: string | null;
+  payoutCurrencyDescription: string | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerStatusCode: number | null;
+  limitPerTransaction: any | null;
+  transactionLimitSettingStatusDescription: string | null;
+  solutionDescription: string | null;
+  payoutCountryCode: string | null;
+  payoutCountryDescription: string | null;
+  payoutCountrySettingStatusCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  supplyPartnerWalletStatusCode: number | null;
+  limitPerDaily: any | null;
+  trangloEntity: string | null;
+  approvalStatusCode: number | null;
+  transactionLimitSettingCode: number | null;
+  limitPerMonthly: any | null;
+  payoutCountrySettingCode: number | null;
+  supplyPartnerName: string | null;
+}
+
+export interface BatchUploadDisplayIssuerSettingsInputDTO {
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+  issuerSettingsBatchList: IssuerSettingsBatchDisplay[] | null;
+}
+
+export interface IssuerSettingsBatchDisplayOutput {
+  issuerCode: string | null;
+  issuerSwiftCode: string | null;
+  branchCode: string | null;
+  branchRemark1: string | null;
+  errorMessage: string | null;
+  isSuccess: boolean | null;
+  branchCity: string | null;
+  branchSwiftCode: string | null;
+  branchRemark2: string | null;
+  issuerBankIssuerName: string | null;
+  branchBankBranchName: string | null;
+}
+
+export interface UpdateTransactionChannelStatusInputDTO {
+  remark: string | null;
+  activeStatusCode: number | null;
+  solutionCode: number | null;
+}
+
+export interface GetAddRoundingSettingRequisitionOutputDTO {
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  trangloConnectStatusCode: number | null;
+  createdBy: string | null;
+  approvalStatus: ApprovalStatusOutputDTO | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  roundingTypeCode: number | null;
+  xValue: number | null;
+  trangloBusinessStatusCode: number | null;
+  editorList: string[] | null;
+}
+
+export interface UpdateFeeReversalSettingInputDTO {
+  isReversal: boolean | null;
+}
+
+export interface PutPayoutOfferCurrencyInputDTO {
+  payoutOfferCurrencyCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  payoutOfferTransactionChannelInputDTO: PutPayoutOfferTransactionChannelInputDTO[] | null;
+}
+
+export interface TLSSupplyPartnerWalletDropdown {
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWalletName: string | null;
+}
+
+export interface GetBeneficiaryFilteredCurrencyListOutputDTO {
+  payoutCurrencyISO: string | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencyCode: number | null;
+}
+
+export interface GetBeneficiaryComplianceLimitSettingsOutputDTO {
+  payoutCountryCode: number | null;
+  payoutCurrencyISO: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountryDescription: string | null;
+  payoutCurrencyCode: number | null;
+  payoutCurrencyDescription: string | null;
+  beneficiaryTypeCode: number | null;
+  beneficiaryTypeDescription: string | null;
+  payoutCountryISO3: string | null;
+  solutionDescription: string | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannelSettingDescription: string | null;
+  beneficiaryComplianceLimit: number | null;
+  beneficiaryComplianceLimitSettingCode: number | null;
+}
+
+export interface ComplianceSettingTypeOutputDTO {
+  complianceSettingTypeCode: number | null;
+  description: string | null;
+}
+
+export interface ActivePayoutCountrySetting {
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+  payoutCountrySettingCode: number | null;
+}
+
+export interface GetBeneficiaryComplianceLimitSettingRequisitionListingOutputDTOPagedResult {
+  results: GetBeneficiaryComplianceLimitSettingRequisitionListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface GetSPMSettingApprovalListingOutputDTO {
+  createdBy: string | null;
+  finalApprovalStatusDescription: string | null;
+  branchLists: ApprovalListingBranchList[] | null;
+  requisitionCode: string | null;
+  createdDate: string | null;
+  remark: string | null;
+  finalApprovalStatus: number | null;
+  issuerCode: string | null;
+  supplyPartnerManagementSettingRequisitionCode: number | null;
+  supplyPartnerWalletName: string | null;
+  requisitionTypeCode: number | null;
+  supplyPartnerStatusCode: number | null;
+  approveDate: string | null;
+  approveBy: string | null;
+  approvalStatus: number | null;
+  editedBy: string | null;
+  editorList: string[] | null;
+  approvalLevel: number | null;
+  requisitionStatus: number | null;
+  bankIssuerName: string | null;
+  externalBankCode: string | null;
+  supplyPartnerName: string | null;
+  supplyPartnerWalletStatusCode: number | null;
+  requisitionStatusDescription: string | null;
+  description: string | null;
+  editedDate: string | null;
+  issuerSettingCode: number | null;
+}
+
+export interface GetRouteSettingsOutputDTO {
+  telPayoutOfferSettingStatusCode: number | null;
+  pttPayoutOfferSettingStatus: string | null;
+  solutionDescription: string | null;
+  transactionChannelSettingCode: number | null;
+  tplSupplyPartnerWallet: string | null;
+  telSupplyPartnerWallet: string | null;
+  routeSettingCode: number | null;
+  country: string | null;
+  currency: string | null;
+  telPayoutOfferSettingStatus: string | null;
+  transactionChannel: string | null;
+  tsbSupplyPartnerWallet: string | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWalletCode: number | null;
+  pttSupplyPartnerWallet: string | null;
+  issuerCode: string | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplPayoutOfferSettingStatus: string | null;
+  pttSupplyPartnerWalletCode: number | null;
+  tsbPayoutOfferSettingStatus: string | null;
+  pttPayoutOfferSettingStatusCode: number | null;
+  routeSettingStatusDescription: string | null;
+  approvalStatusCode: number | null;
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  issuerSettingCode: number | null;
+  bankValidation: boolean | null;
+  currencyISO3: string | null;
+  approvalStatus: string | null;
+  routeSettingStatusCode: number | null;
+  solutionCode: number | null;
+  bankIssuerName: string | null;
+  tsbPayoutOfferSettingStatusCode: number | null;
+  tplPayoutOfferSettingStatusCode: number | null;
+}
+
+export interface GetBeneficiaryComplianceLimitSettingsOutputDTOPagedResult {
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetBeneficiaryComplianceLimitSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+}
+
+export interface IssuerSettingDropdown {
+  issuerSettingCode: number | null;
+  issuerSettingStatusCode: number | null;
+  issuerCode: string | null;
+  bankName: string | null;
+}
+
+export interface GetFeeReversalSettingPartnerNameOutputDTO {
+  partnerName: string | null;
+  partnerCode: number | null;
+}
+
+export interface GetIssuerSettingsDropdownOutputDTO {
+  issuerCode: string | null;
+  bankName: string | null;
+  issuerSettingStatusCode: number | null;
+  issuerSettingCode: number | null;
+}
+
+export interface PayoutCurrencySettingDropdown {
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencySettingStatusCode: number | null;
+  currencyCode: string | null;
+  payoutCurrencyDescription: string | null;
+}
+
+export interface ComplianceGroupingSettingRequisition {
+  solution: Solution | null;
+  transactionChannelSettingCode: number | null;
+  groupingType: GroupingType | null;
+  requisitionStatus: RequisitionStatus | null;
+  editedBy: string | null;
+  groupingCategory: GroupingCategory | null;
+  requisitionCode: string | null;
+  createdBy: string | null;
+  createdDate: string | null;
+  complianceRequisitionType: ComplianceRequisitionType | null;
+  editedDate: string | null;
+  complianceGroupingSettingCode: number | null;
+  id: number | null;
+  approvalLevelNeeded: number | null;
+  approvalLevel: number | null;
+}
+
+export interface RejectComplianceSettingRequisitionInputDTO {
+  otp: string | null;
+  requisitionGroupId: string | null;
+  requisitions: RejectComplianceRequisition[] | null;
+}
+
+export interface TransactionChannelSettingOutputDTO {
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  transactionChannelStatusCode: number | null;
+  transactionChannelStatusDescription: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+}
+
+export interface GetIndividualComplianceGroupingSettingOutputDTO {
+  solutionCode: number | null;
+  groupingCategoryDescription: string | null;
+  groupingCategoryCode: number | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  groupingTypeCode: number | null;
+  groupingTypeDescription: string | null;
+  complianceGroupingSettingCode: number | null;
+  solutionDescription: string | null;
+}
+
+export interface RequisitionTypeOutputDTO {
+  requisitionTypeCode: number | null;
+  productSettingTypeCode: number | null;
+  description: string | null;
+}
+
+export interface AddComplianceGroupingSettingInputDTO {
+  solutionCode: number | null;
+  groupingCategoryCode: number | null;
+  transactionChannelSettingCode: number | null;
+  groupingTypeCode: number | null;
+}
+
+export interface UpdatePayoutCountryStatusInputDTO {
+  remark: string | null;
+  activeStatusCode: number | null;
+  solutionCode: number | null;
+}
+
+export interface GetFeeReversalSettingApprovalListingOutputDTOPagedResult {
+  results: GetFeeReversalSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface UpdateSenderComplianceLimitSettingInputDTO {
+  solutionCode: number | null;
+  countryISO2: string | null;
+  senderComplianceLimit: number | null;
+  remarks: string | null;
+  senderComplianceLimitSettingCode: number | null;
+  trangloEntity: string | null;
+}
+
+export interface GetFilteredCurencyListOutputDTO {
+  currencyCode: string | null;
+  currencyDescription: string | null;
+}
+
+export interface GetParameterSettingsOutputDTO {
+  payoutCurrencySettingCode: number | null;
+  approvalStatus: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountry: string | null;
+  payoutCurrency: string | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  issuerSettingCode: number | null;
+  issuerCode: string | null;
+  parameterSettingStatusCode: number | null;
+  parameterSettingCode: number | null;
+  approvalStatusCode: number | null;
+  parameterSettingStatus: string | null;
+}
+
+export interface GetComplianceRequisitionRequestedByUsersOutputDTO {
+  requestedBy: string | null;
+  userId: number | null;
+}
+
+export interface SaveIssuerSettingsInputDTO {
+  trangloBusinessStatusCode: number | null;
+  branchList: SaveIssuerSettingBranchInputDTO[] | null;
+  issuerSettingCode: number | null;
+  bankIssuerName: string | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  trangloConnectStatusCode: number | null;
+}
+
+export interface GetActiveTransactionChannelSettingListOutputDTO {
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  solutionDescription: string | null;
+  activeTransactionChannelSettings: ActiveTransactionChannelSetting[] | null;
+}
+
+export interface RoundingType {
+  requireXValue: boolean | null;
+  name: string | null;
+  id: number | null;
+}
+
+export interface GetIndividualTransactionLimitSettingsOutputDTO {
+  payoutCurrencyCode: string | null;
+  limitPerDaily: any | null;
+  limitPerMonthly: any | null;
+  trangloEntity: string | null;
+  solutionDescription: string | null;
+  supplyPartnerWalletName: string | null;
+  limitPerWeekly: any | null;
+  payoutCurrencySettingCode: number | null;
+  supplyPartnerName: string | null;
+  payoutCurrencyDescription: string | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  limitPerTransaction: any | null;
+  transactionLimitSettingStatusCode: number | null;
+  solutionCode: number | null;
+  payoutCountryDescription: string | null;
+  payoutCountryCode: string | null;
+  transactionChannel: string | null;
+  transactionLimitSettingStatusDescription: string | null;
+  transactionLimitSettingCode: number | null;
+  payoutCountrySettingCode: number | null;
+}
+
+export interface PartnerTypeOutputDTO {
+  partnerTypeCode: number | null;
+  description: string | null;
+}
+
+export interface SupplyPartnerManagementSettingsBatchDisplay {
+  spMSupplyPartnerName: string | null;
+  spMSupplyPartnerWalletName: string | null;
+  spMExternalBankCode: string | null;
+  spMIssuerCode: string | null;
+}
+
+export interface GetRequisitionIssuerSettingFiltersOutputDTO {
+  issuerCodeFilters: string[] | null;
+  swiftCodeFilters: string[] | null;
+  submittedByFilters: string[] | null;
+  editedByFilters: string[] | null;
+  approvedByFilters: string[] | null;
+}
+
+export interface EditSPMSettingInputDTO {
+  issuerSettingCode: number | null;
+  branches: BranchInputDTO[] | null;
+  supplyPartnerManagementSettingCode: number | null;
+  issuerCode: string | null;
+  bankIssuerName: string | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  externalBankCode: string | null;
+}
+
+export interface PayoutCurrencyAndTransactionChannel {
+  currencyCode: string | null;
+  transactionChannels: string[] | null;
+  payoutCurrency: string | null;
+}
+
+export interface SaveIssuerSettingBranchInputDTO {
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: number | null;
+  branchCode: number | null;
+  code: string | null;
+  name: string | null;
+  city: string | null;
+  swiftCode: string | null;
+}
+
+export interface EditEditSPMSettingRequisitionInputDTO {
+  issuerCode: string | null;
+  supplyPartnerWalletCode: number | null;
+  branches: BranchDTO[] | null;
+  externalBankCode: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+  issuerSettingCode: number | null;
+  bankIssuerName: string | null;
+  supplyPartnerCode: number | null;
+}
+
+export interface TLSupplyPartnerDropdown {
+  supplyPartnerName: string | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerStatusCode: number | null;
+}
+
+export interface UpdateRouteSettingsInputDTO {
+  telSupplyPartnerWalletCode: number | null;
+  pttSupplyPartnerWalletCode: number | null;
+  bankValidation: boolean | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplSupplyPartnerWalletCode: number | null;
+}
+
+export interface GroupingCategory {
+  name: string | null;
+  id: number | null;
+}
+
+export interface UpdateBeneficiaryComplianceLimitSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface GetRoundingSettingsOutputDTO {
+  payoutCountryCode: string | null;
+  payoutCurrencyDescription: string | null;
+  transactionChannelSettingCode: number | null;
+  roundingSettingStatusCode: number | null;
+  roundingSettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  xValue: number | null;
+  roundingSettingStatusDescription: string | null;
+  approvalStatusCode: number | null;
+  payoutCountryDescription: string | null;
+  transactionChannel: string | null;
+  roundingTypeCode: number | null;
+  roundingTypeDescription: string | null;
+  approvalStatusDescription: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCurrencyCode: string | null;
+}
+
+export interface ComplianceGroupingSettingRequisitionRequisitionEditResult {
+  isLocked: boolean | null;
+  lockedBy: string | null;
+  lockedSince: string | null;
+  isSuccess: boolean | null;
+  exception: any | null;
+  error: string | null;
+  requisition: ComplianceGroupingSettingRequisition | null;
+}
+
+export interface IssuerSettingsBatchDisplay {
+  branchSwiftCode: string | null;
+  branchRemark2: string | null;
+  issuerCode: string | null;
+  issuerBankIssuerName: string | null;
+  issuerSwiftCode: string | null;
+  branchBankBranchName: string | null;
+  branchCode: string | null;
+  branchCity: string | null;
+  branchRemark1: string | null;
+}
+
+export interface PayoutCountrySettingInputDTO {
+  payoutCountrySettingList: PayoutCountrySettingListInputDTO[] | null;
+}
+
+export interface GetIssuerSettingsOutputDTO {
+  issuerSettingStatusDescription: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  issuerSettingCode: number | null;
+  bankIssuerName: string | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  issuerSettingStatusCode: number | null;
+}
+
+export interface PostPayoutOfferSettingOutputDTO {
+  payoutOfferSettingRequisitionCode: number | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  requisitionTypeName: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+}
+
+export interface GetRoundingSettingsOutputDTOPagedResult {
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetRoundingSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+}
+
+export interface TransactionChannelSettingOutputDTOPagedResult {
+  results: TransactionChannelSettingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface GetBeneficiaryComplianceLimitSettingRequisitionListingOutputDTO {
+  transactionChannelSettingCode: number | null;
+  remarks: string | null;
+  requisitionStatusDescription: string | null;
+  payoutCountryISO3: string | null;
+  transactionChannelSettingDescription: string | null;
+  payoutCurrencyCode: number | null;
+  editorList: string[] | null;
+  complianceRequisitionTypeDescription: string | null;
+  requisitionStatus: number | null;
+  createdDate: string | null;
+  approveDate: string | null;
+  editedBy: string | null;
+  finalApprovalStatus: number | null;
+  complianceRequisitionTypeCode: number | null;
+  createdBy: string | null;
+  remark: string | null;
+  requisitionCode: string | null;
+  finalApprovalStatusDescription: string | null;
+  payoutCountryDescription: string | null;
+  description: string | null;
+  beneficiaryComplianceLimitSettingCode: number | null;
+  payoutCurrencyISO: string | null;
+  beneficiaryTypeCode: string | null;
+  approveBy: string | null;
+  approvalStatus: number | null;
+  payoutCurrencyDescription: string | null;
+  beneficiaryTypeDescription: string | null;
+  beneficiaryComplianceLimit: number | null;
+  approvalLevel: number | null;
+  editedDate: string | null;
+  payoutCountryCode: number | null;
+}
+
+export interface GetSPMSingleSettingsOutputDTOPagedResult {
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetSPMSingleSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+}
+
+export interface SaveFeeReversalSettingInputDTO {
+  solutionCode: number | null;
+  partnerTypeCode: number | null;
+  partnerCode: number | null;
+  partnerWalletCode: number | null;
+  payoutCountrySettingCode: number | null;
+  isReversal: boolean | null;
+  transactionChannelSettingCode: number | null;
+}
+
+export interface EditEditRouteSettingRequisitionInputDTO {
+  bankValidation: boolean | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWalletCode: number | null;
+  pttSupplyPartnerWalletCode: number | null;
+}
+
+export interface GetSPMSettingsOutputDTO {
+  transactionChannelSettingStatusCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerWalletStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  transactionChannel: string | null;
+  issuerSettingStatusCode: number | null;
+  bankBranchCode: string | null;
+  approvalStatusCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+  solutionCode: number | null;
+  bankBranchName: string | null;
+  supplyPartnerStatusCode: number | null;
+  supplyPartnerWalletName: string | null;
+  supplyPartnerManagementSettingStatusCode: number | null;
+  externalBankCode: string | null;
+  externalBankBranchCode: string | null;
+  trangloEntity: string | null;
+  issuerCode: string | null;
+  bankName: string | null;
+}
+
+export interface ApprovalListingBranchList {
+  branchBranchCode: string | null;
+  bankBranchName: string | null;
+  externalBankBranchCode: string | null;
+  externalBankBranchIssuerSetting: number | null;
+  supplyPartnerManagementSettingExternalBranchStatusCode: number | null;
+  supplyPartnerManagementSettingExternalBranchStatusDescription: string | null;
+  supplyPartnerManagementSettingRequisitionCode: number | null;
+  branchCode: number | null;
+}
+
+export interface SaveRoundingSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface EditAddRouteSettingRequisitionInputDTO {
+  bankValidation: boolean | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWalletCode: number | null;
+  pttSupplyPartnerWalletCode: number | null;
+}
+
+export interface ActiveStatusOutputDTO {
+  activeStatusCode: number | null;
+  description: string | null;
+}
+
+export interface GetSPMSettingApprovalListingOutputDTOPagedResult {
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetSPMSettingApprovalListingOutputDTO[] | null;
+}
+
+export interface SPMBankBranchDropdown {
+  issuerSettingCode: number | null;
+  issuerSettingStatusCode: number | null;
+  bankBranchCode: string | null;
+  bankBranchName: string | null;
+}
+
+export interface PayoutCountrySettingListInputDTO {
+  countryISO2: string | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+}
+
+export interface MainListingBranchList {
+  supplyPartnerManagementSettingExternalBranchStatusDescription: string | null;
+  supplyPartnerManagementSettingCode: number | null;
+  externalBankBranchIssuerSetting: number | null;
+  branchCode: number | null;
+  branchBranchCode: string | null;
+  bankBranchName: string | null;
+  externalBankBranchCode: string | null;
+  supplyPartnerManagementSettingExternalBranchStatusCode: number | null;
+}
+
+export interface PayoutCountrySettingOutputDTOPagedResult {
+  results: PayoutCountrySettingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface TransactionChannelOutputDTO {
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  transactionChannelStatusCode: number | null;
+  transactionChannelStatusDescription: string | null;
+  payoutOfferSettingStatusCode: number | null;
+  isRemoved: boolean | null;
+  payoutOfferTransactionChannelRequisitionCode: number | null;
+  payoutOfferTransactionChannelCode: number | null;
+}
+
+export interface UpdateParameterSettingsInputDTO {
+  bankProvinceParameterTypeCode: number | null;
+  senderCityAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountTypeParameterTypeCode: number | null;
+  beneficiaryAccountNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyAcceptSpecialCharacter: boolean | null;
+  beneficiaryCityAcceptSpecialCharacter: boolean | null;
+  senderAddressAcceptSpecialCharacter: boolean | null;
+  senderPostcodeParameterTypeCode: number | null;
+  senderNatureOfBusinessParameterTypeCode: number | null;
+  transactionChannelSettingCode: number | null;
+  billDueDateParameterTypeCode: number | null;
+  issuerSettingCode: number | null;
+  beneficiaryIDTypeParameterTypeCode: number | null;
+  beneficiaryBankBranchNameParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeParameterTypeCode: number | null;
+  beneficiaryCityParameterTypeCode: number | null;
+  beneficiaryEmailParameterTypeCode: number | null;
+  senderRegencyParameterTypeCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  beneficiaryBankBranchCodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryAddressParameterTypeCode: number | null;
+  beneficiaryAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryPostcodeParameterTypeCode: number | null;
+  beneficiaryBirthDateParameterTypeCode: number | null;
+  beneficiaryIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryPostcodeAcceptSpecialCharacter: boolean | null;
+  bankCityParameterTypeCode: number | null;
+  senderIDNumberAcceptSpecialCharacter: boolean | null;
+  senderCityParameterTypeCode: number | null;
+  senderOccupationParameterTypeCode: number | null;
+  billNumberParameterTypeCode: number | null;
+  beneficiaryProvinceParameterTypeCode: number | null;
+  beneficiaryRegencyParameterTypeCode: number | null;
+  bankProvinceAcceptSpecialCharacter: boolean | null;
+  bankPostcodeParameterTypeCode: number | null;
+  bankPostcodeAcceptSpecialCharacter: boolean | null;
+  senderEmailParameterTypeCode: number | null;
+  beneficiaryIDNumberParameterTypeCode: number | null;
+  beneficiaryAccountNumberParameterTypeCode: number | null;
+  beneficiaryContactNumberParameterTypeCode: number | null;
+  beneficiaryCitizenshipParameterTypeCode: number | null;
+  senderProvinceParameterTypeCode: number | null;
+  senderRegencyAcceptSpecialCharacter: boolean | null;
+  payoutCountrySettingCode: number | null;
+  beneficiaryBankBranchNameAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountTypeAcceptSpecialCharacter: boolean | null;
+  bankCityAcceptSpecialCharacter: boolean | null;
+  senderPostcodeAcceptSpecialCharacter: boolean | null;
+  senderProvinceAcceptSpecialCharacter: boolean | null;
+  billStatementDateParameterTypeCode: number | null;
+  solutionCode: number | null;
+}
+
+export interface GetFeeReversalSettingMainListingOutputDTO {
+  partnerType: string | null;
+  partnerCode: number | null;
+  partnerWalletName: string | null;
+  payoutCountrySettingCode: number | null;
+  feeReversalSettingCode: number | null;
+  finalApprovalStatus: number | null;
+  solution: string | null;
+  partnerName: string | null;
+  transactionChannelSettingCode: number | null;
+  isReversal: boolean | null;
+  approvalStatus: number | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  partnerTypeCode: number | null;
+  finalApprovalStatusDescription: string | null;
+  partnerWalletCode: number | null;
+  payoutCountry: string | null;
+  transactionChannel: string | null;
+}
+
+export interface GetPayoutOfferSettingOutputDTOPagedResult {
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetPayoutOfferSettingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+}
+
+export interface AddSPMSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface PostPayoutOfferSettingInputDTO {
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountrySettingCode: number | null;
+  payoutOfferCurrencyInputDTO: PostPayoutOfferCurrencyInputDTO[] | null;
+}
+
+export interface RequisitionStatus {
+}
+
+export interface GetSPMSingleSettingsOutputDTO {
+  solutionCode: number | null;
+  bankIssuerName: string | null;
+  supplyPartnerWalletName: string | null;
+  supplyPartnerWalletStatusCode: number | null;
+  solutionDescription: string | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerManagementSettingStatusCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+  issuerSettingCode: number | null;
+  issuerCode: string | null;
+  trangloEntity: string | null;
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerStatusCode: number | null;
+  externalBankCode: string | null;
+  spmBranches: SPMBranch[] | null;
+}
+
+export interface GetPayoutCountrySettingOutputDTO {
+  payoutCountrySettingCode: number | null;
+  countryISO2: string | null;
+  countryISO3: string | null;
+  description: string | null;
+  payoutCountryStatusCode: number | null;
+}
+
+export interface GetPayoutOfferSettingApprovalListingOutputDTO {
+  requisitionTypeCode: number | null;
+  editedBy: string | null;
+  editedDate: string | null;
+  limitPerTransaction: any | null;
+  limitPerWeekly: any | null;
+  finalApprovalStatusDescription: string | null;
+  transactionChannel: string[] | null;
+  requisitionStatus: number | null;
+  createdDate: string | null;
+  description: string | null;
+  approveDate: string | null;
+  remark: string | null;
+  payoutCountry: string | null;
+  payoutCurrency: string[] | null;
+  approvalLevel: number | null;
+  createdBy: string | null;
+  approvalStatus: number | null;
+  limitPerMonthly: any | null;
+  editorList: string[] | null;
+  requisitionCode: string | null;
+  requisitionStatusDescription: string | null;
+  approveBy: string | null;
+  finalApprovalStatus: number | null;
+  limitPerDaily: any | null;
+}
+
+export interface GetRequisitionIssuerSettingBranchListOutputDTO {
+  city: string | null;
+  swiftCode: string | null;
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: string | null;
+  code: string | null;
+  name: string | null;
+}
+
+export interface errorsDTO {
+}
+
+export interface ValidationProblemDetails {
+  type: string | null;
+  title: string | null;
+  status: number | null;
+  detail: string | null;
+  instance: string | null;
+  errors: errorsDTO | null;
+}
+
+export interface Solution {
+  name: string | null;
+  id: number | null;
+}
+
+export interface GetRoundingSettingApprovalListingOutputDTOPagedResult {
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetRoundingSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+}
+
+export interface GetIndividualSenderComplianceLimitSettingOutputDTO {
+  senderComplianceLimit: number | null;
+  remarks: string | null;
+  senderComplianceLimitSettingCode: number | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  solutionDescription: string | null;
+  currencyCode: string | null;
+  currencyDescription: string | null;
+}
+
+export interface GetSupplyPartnerManagementBankBranchOutputDTO {
+  bankBranchDropdowns: SPMBankBranchDropdown[] | null;
+}
+
+export interface GetPayoutOfferCurrencyByCodeOutputDTO {
+  payoutCurrencyCode: string | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencyStatusCode: number | null;
+  payoutCurrencyStatusDescription: string | null;
+  getPayoutOfferTransactionChannelByCodeOutputDTO: GetPayoutOfferTransactionChannelByCodeOutputDTO[] | null;
+  payoutOfferSettingCode: number | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutCurrencySettingCode: number | null;
+}
+
+export interface GetFeeReversalSettingWalletNameOutputDTO {
+  walletName: string | null;
+  partnerWalletCode: number | null;
+}
+
+export interface PayoutCurrencySettingOutputDTO {
+  approvalStatusDescription: string | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyCode: string | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencyStatusCode: number | null;
+  payoutCurrencyStatusDescription: string | null;
+  approvalStatusCode: number | null;
+}
+
+export interface GetComplianceGroupingSettingApprovalListingOutputDTO {
+  approveDate: string | null;
+  finalApprovalStatus: number | null;
+  finalApprovalStatusDescription: string | null;
+  editorList: string[] | null;
+  createdBy: string | null;
+  createdDate: string | null;
+  approveBy: string | null;
+  complianceRequisitionTypeCode: number | null;
+  editedBy: string | null;
+  approvalStatus: number | null;
+  editedDate: string | null;
+  requisitionCode: string | null;
+  complianceRequisitionTypeDescription: string | null;
+  approvalLevel: number | null;
+}
+
+export interface GetIndividualIssuerSettingsOutputDTO {
+  issuerSettingCode: number | null;
+  solutionStatuses: SolutionStatus[] | null;
+  bankIssuerName: string | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  branchLists: BranchList[] | null;
+}
+
+export interface GetPayoutCurrencySettingOutputDTO {
+  payoutCurrencySettingCode: number | null;
+  countryISO: string | null;
+  description: string | null;
+  payoutCurrencyStatusCode: number | null;
+}
+
+export interface GetActivePayoutCurrencySettingListOutputDTO {
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  solutionDescription: string | null;
+  activePayoutCurrencySettings: ActivePayoutCurrencySetting[] | null;
+}
+
+export interface ApproveProductSettingRequisitionInputDTO {
+  otp: string | null;
+  requisitionGroupId: string | null;
+  requisitions: Requisition[] | null;
+}
+
+export interface CurrencyOutputDTO {
+  currencyCode: string | null;
+  description: string | null;
+}
+
+export interface RejectProductSettingRequisitionOutputDTO {
+  approvalWorkflowResult: ApprovalWorkflowResult | null;
+  requisitionCode: string | null;
+}
+
+export interface GetRoundingSettingApprovalListingOutputDTO {
+  requisitionTypeDescription: string | null;
+  createdBy: string | null;
+  editedDate: string | null;
+  editorList: string[] | null;
+  approveBy: string | null;
+  finalApprovalStatusDescription: string | null;
+  solutions: string | null;
+  payoutCountry: string | null;
+  payoutCurrency: string | null;
+  transactionChannel: string | null;
+  createdDate: string | null;
+  approvalStatus: number | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  xValue: number | null;
+  approvalLevel: number | null;
+  roundingType: string | null;
+  approveDate: string | null;
+  editedBy: string | null;
+  finalApprovalStatus: number | null;
+}
+
+export interface EditAddPayoutOfferSettingRequisitionInputDTO {
+  requisitionTypeCode: number | null;
+  solutionCode: number | null;
+  payoutOfferSettingCode: number | null;
+  payoutOfferSettingRequisitionCode: number | null;
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+  getPayoutOfferCurrencyOutputDTO: PayoutOfferCurrencyOutputDTO[] | null;
+  requisitionCode: string | null;
+  payoutCountrySettingStatusCode: number | null;
+  payoutCountrySettingCode: number | null;
+}
+
+export interface SPMFilterTransactionChannelSettingDropdown {
+  transactionChannelSettingCode: number | null;
+  transactionChannelSettingStatusCode: number | null;
+  transactionChannel: string | null;
+}
+
+export interface UpdateBeneficiaryComplianceLimitSettingInputDTO {
+  beneficiaryComplianceLimitSettingCode: number | null;
+  payoutCurrencyCode: number | null;
+  beneficiaryTypeCode: string | null;
+  beneficiaryComplianceLimit: number | null;
+  remarks: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountryCode: number | null;
+  transactionChannelSettingCode: number | null;
+}
+
+export interface TransactionChannelSettingDropdown {
+  transactionChannelSettingCode: number | null;
+  transactionChannelSettingStatusCode: number | null;
+  transactionChannel: string | null;
+}
+
+export interface EditAddSenderComplianceLimitSettingRequisitionInputDTO {
+  senderComplianceLimit: number | null;
+  remarks: string | null;
+}
+
+export interface GetSupplyPartnerManagementSettingListOutputDTO {
+  issuerSettingCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerManagementSettingStatusCode: number | null;
+  supplyPartnerManagementSettingStatusDescription: string | null;
+  approvalStatusDescription: string | null;
+  trangloEntity: string | null;
+  externalBankCode: string | null;
+  supplyPartnerWalletName: string | null;
+  bankIssuerName: string | null;
+  supplyPartnerStatusCode: number | null;
+  branchLists: MainListingBranchList[] | null;
+  issuerCode: string | null;
+  solutionCode: number | null;
+  supplyPartnerWalletStatusCode: number | null;
+  approvalStatusCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+}
+
+export interface PayoutCountrySettingDropdown {
+  payoutCountryDescription: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountrySettingStatusCode: number | null;
+}
+
+export interface EditTransactionChannelOutputDTO {
+  payoutOfferTransactionChannelCode: number | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  transactionChannelStatusCode: number | null;
+  transactionChannelStatusDescription: string | null;
+  payoutOfferSettingStatusCode: number | null;
+  isRemoved: boolean | null;
+  payoutOfferTransactionChannelRequisitionCode: number | null;
+}
+
+export interface GetPayoutOfferSettingByCodeOutputDTO {
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+  getPayoutOfferCurrencyByCodeOutputDTO: GetPayoutOfferCurrencyByCodeOutputDTO[] | null;
+  solutionCode: number | null;
+  payoutOfferSettingCode: number | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountryStatusCode: number | null;
+  payoutCountryStatusDescription: string | null;
+}
+
+export interface ParameterTypeOutputDTO {
+  parameterTypeCode: number | null;
+  description: string | null;
+}
+
+export interface PayoutCurrencySettingInputDTO {
+  payoutCurrencySettingList: PayoutCurrencySettingListInputDTO[] | null;
+}
+
+export interface GroupingTypeOutputDTO {
+  groupingTypeCode: number | null;
+  solutionCode: number | null;
+  groupingCategoryCode: number | null;
+  description: string | null;
+}
+
+export interface GetExternalBanksDropdownOutputDTO {
+  externalBankCode: string | null;
+}
+
+export interface ComplianceRequisitionTypeOutputDTO {
+  complianceRequisitionTypeCode: number | null;
+  complianceSettingTypeCode: number | null;
+  description: string | null;
+}
+
+export interface RoundingSettingRequisition {
+  trangloConnectStatusCode: ActiveStatus | null;
+  trangloBusinessStatusCode: ActiveStatus | null;
+  editedDate: string | null;
+  createdBy: string | null;
+  transactionChannelSettingCode: number | null;
+  roundingType: RoundingType | null;
+  requisitionCode: string | null;
+  approvalLevel: number | null;
+  editedBy: string | null;
+  payoutCurrencySettingCode: number | null;
+  xValue: number | null;
+  solution: Solution | null;
+  id: number | null;
+  requisitionStatus: RequisitionStatus | null;
+  createdDate: string | null;
+  roundingSettingCode: number | null;
+  requisitionType: RequisitionType | null;
+  payoutCountrySettingCode: number | null;
+  approvalLevelNeeded: number | null;
+}
+
+export interface EditAddTransactionLimitSettingRequisitionInputDTO {
+  supplyPartnerCode: number | null;
+  limitPerTransaction: any | null;
+  limitPerWeekly: any | null;
+  solutionCode: number | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  limitPerDaily: any | null;
+  limitPerMonthly: any | null;
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+}
+
+export interface SaveSenderComplianceLimitSettingInputDTO {
+  countryISO2: string | null;
+  senderComplianceLimit: number | null;
+  remarks: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+}
+
+export interface SaveFeeReversalSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface GetTransactionLimitSettingRequisitionFiltersOutputDTO {
+  supplyPartnerDropdowns: TLSSupplyPartnerDropdown[] | null;
+  supplyPartnerWalletDropdowns: TLSSupplyPartnerWalletDropdown[] | null;
+}
+
+export interface GetIndividualBeneficiaryComplianceLimitSettingOutputDTO {
+  payoutCurrencyISO: string | null;
+  transactionChannelSettingCode: number | null;
+  beneficiaryComplianceLimit: number | null;
+  transactionChannelSettingDescription: string | null;
+  beneficiaryTypeCode: number | null;
+  beneficiaryTypeDescription: string | null;
+  beneficiaryComplianceLimitSettingCode: number | null;
+  solutionDescription: string | null;
+  payoutCurrencyDescription: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountryCode: number | null;
+  payoutCountryISO3: string | null;
+  payoutCountryDescription: string | null;
+  payoutCurrencyCode: number | null;
+}
+
+export interface RejectBeneficiaryComplianceSettingRequisitionInputDTO {
+  otp: string | null;
+  requisitionGroupId: string | null;
+  requisitions: RejectBeneficiaryComplianceRequisition[] | null;
+}
+
+export interface GetIndividualRouteSettingWalletListOutputDTO {
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWallet: string | null;
+}
+
+export interface ApprovalWorkflowResult {
+  approvalLevel: number | null;
+  approvalStatus: ApprovalStatus | null;
+  requisitionStatus: RequisitionStatus | null;
+  exception: any | null;
+  error: string | null;
+}
+
+export interface EditComplianceGroupingSettingInputDTO {
+  transactionChannelSettingCode: number | null;
+  groupingTypeCode: number | null;
+}
+
+export interface BatchSubmitIssuerSettingsOutputDTO {
+  requisitionCode: string | null;
+  issuerCode: string | null;
+}
+
+export interface UpdateRoundingSettingStatusInputDTO {
+  solutionCode: number | null;
+  activeStatusCode: number | null;
+}
+
+export interface BranchList {
+  swiftCode: string | null;
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: number | null;
+  branchCode: number | null;
+  code: string | null;
+  name: string | null;
+  city: string | null;
+}
+
+export interface ActiveTransactionChannelSetting {
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+}
+
+export interface GetSenderComplianceLimitSettingRequisitionListingOutputDTO {
+  remark: string | null;
+  description: string | null;
+  finalApprovalStatus: number | null;
+  finalApprovalStatusDescription: string | null;
+  senderComplianceLimitSettingCode: number | null;
+  complianceRequisitionTypeCode: number | null;
+  requisitionStatusDescription: string | null;
+  approvalStatus: number | null;
+  editorList: string[] | null;
+  currencyCode: string | null;
+  approvalLevel: number | null;
+  approveBy: string | null;
+  editedBy: string | null;
+  createdBy: string | null;
+  approveDate: string | null;
+  editedDate: string | null;
+  requisitionCode: string | null;
+  complianceRequisitionTypeDescription: string | null;
+  requisitionStatus: number | null;
+  remarks: string | null;
+  createdDate: string | null;
+  currencyDescription: string | null;
+  senderComplianceLimit: number | null;
+}
+
+export interface EditAddBeneficiaryComplianceLimitSettingRequisitionInputDTO {
+  beneficiaryComplianceLimit: number | null;
+  remarks: string | null;
+}
+
+export interface GetComplianceGroupingSettingsOutputDTO {
+  transactionChannel: string | null;
+  groupingTypeCode: number | null;
+  complianceGroupingSettingCode: number | null;
+  groupingCategoryCode: number | null;
+  transactionChannelSettingCode: number | null;
+  groupingTypeDescription: string | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+  solutionCode: number | null;
+  solutionDescription: string | null;
+  groupingCategoryDescription: string | null;
+}
+
+export interface GetSenderComplianceLimitSettingsOutputDTO {
+  senderComplianceLimitSettingCode: number | null;
+  trangloEntity: string | null;
+  senderCountryDescription: string | null;
+  currencyCode: string | null;
+  senderComplianceLimit: number | null;
+  approvalStatusCode: number | null;
+  solutionCode: number | null;
+  solutionDescription: string | null;
+  senderCountry: string | null;
+  approvalStatusDescription: string | null;
+}
+
+export interface GetIndividualRoundingSettingOutputDTO {
+  xValue: number | null;
+  trangloConnectStatusDescription: string | null;
+  trangloBusinessStatusCode: number | null;
+  roundingSettingCode: number | null;
+  payoutCurrencyDescription: string | null;
+  roundingTypeDescription: string | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyCode: string | null;
+  roundingTypeCode: number | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusDescription: string | null;
+  payoutCountryCode: string | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountryDescription: string | null;
+}
+
+export interface GetFeeReversalSettingMainListingOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetFeeReversalSettingMainListingOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface GetFilteredTransactionChannelListOutputDTO {
+  transactionChannelSettingCode: number | null;
+  description: string | null;
+}
+
+export interface BankIssuerNameFilter {
+  issuerCode: string | null;
+  bankIssuerName: string | null;
+}
+
+export interface PostPayoutOfferTransactionChannelInputDTO {
+  transactionChannelSettingCode: number | null;
+}
+
+export interface EditEditPayoutOfferSettingRequisitionInputDTO {
+  solutionCode: number | null;
+  payoutOfferSettingCode: number | null;
+  payoutOfferSettingRequisitionCode: number | null;
+  payoutCountrySettingCode: number | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  payoutCountrySettingStatusCode: number | null;
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+  getPayoutOfferCurrencyOutputDTO: EditPayoutOfferCurrencyOutputDTO[] | null;
+}
+
+export interface EditEditIssuerSettingBranchInputDTO {
+  name: string | null;
+  city: string | null;
+  swiftCode: string | null;
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: number | null;
+  isAdd: boolean | null;
+  code: string | null;
+}
+
+export interface GetPayoutOfferTransactionChannelByCodeOutputDTO {
+  payoutOfferSettingStatusDescription: string | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutOfferTransactionChannelCode: number | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  transactionChannelStatusCode: number | null;
+  transactionChannelStatusDescription: string | null;
+  payoutOfferSettingStatusCode: number | null;
+}
+
+export interface GetSupplyPartnersDropdownOutputDTO {
+  supplyPartnerCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerStatusCode: number | null;
+}
+
+export interface GetIndividualParameterSettingOutputDTO {
+  senderPostcodeAcceptSpecialCharacter: boolean | null;
+  billNumberParameterTypeCode: number | null;
+  issuerCode: string | null;
+  beneficiaryAccountNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountTypeAcceptSpecialCharacter: boolean | null;
+  bankProvinceAcceptSpecialCharacter: boolean | null;
+  bankPostcodeParameterTypeCode: number | null;
+  beneficiaryCityParameterTypeCode: number | null;
+  beneficiaryCityAcceptSpecialCharacter: boolean | null;
+  beneficiaryEmailParameterTypeCode: number | null;
+  bankProvinceParameterTypeCode: number | null;
+  bankCityAcceptSpecialCharacter: boolean | null;
+  bankProvinceParameterType: string | null;
+  senderAddressAcceptSpecialCharacter: boolean | null;
+  senderRegencyAcceptSpecialCharacter: boolean | null;
+  solutionCode: number | null;
+  beneficiaryIDNumberParameterType: string | null;
+  beneficiaryAccountNumberParameterType: string | null;
+  beneficiaryBirthDateParameterTypeCode: number | null;
+  senderNatureOfBusinessParameterType: string | null;
+  billStatementDateParameterTypeCode: number | null;
+  solution: string | null;
+  beneficiaryPostcodeParameterTypeCode: number | null;
+  senderCityParameterType: string | null;
+  senderOccupationParameterTypeCode: number | null;
+  billDueDateParameterType: string | null;
+  beneficiaryAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryCitizenshipParameterTypeCode: number | null;
+  senderProvinceParameterType: string | null;
+  senderProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyParameterType: string | null;
+  bankCityParameterType: string | null;
+  senderIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountNumberParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeParameterType: string | null;
+  billDueDateParameterTypeCode: number | null;
+  beneficiaryProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryPostcodeParameterType: string | null;
+  beneficiaryEmailParameterType: string | null;
+  billNumberParameterType: string | null;
+  beneficiaryIDNumberParameterTypeCode: number | null;
+  beneficiaryAddressParameterTypeCode: number | null;
+  beneficiaryAddressParameterType: string | null;
+  beneficiaryPostcodeAcceptSpecialCharacter: boolean | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountry: string | null;
+  transactionChannelSettingCode: number | null;
+  beneficiaryIDTypeParameterType: string | null;
+  beneficiaryAccountTypeParameterTypeCode: number | null;
+  senderEmailParameterTypeCode: number | null;
+  senderCityParameterTypeCode: number | null;
+  senderEmailParameterType: string | null;
+  billStatementDateParameterType: string | null;
+  beneficiaryContactNumberParameterType: string | null;
+  bankPostcodeParameterType: string | null;
+  senderPostcodeParameterType: string | null;
+  parameterSettingCode: number | null;
+  beneficiaryBankBranchNameAcceptSpecialCharacter: boolean | null;
+  beneficiaryBankBranchCodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryProvinceParameterType: string | null;
+  payoutCurrencySettingCode: number | null;
+  issuerSettingCode: number | null;
+  beneficiaryIDTypeParameterTypeCode: number | null;
+  beneficiaryProvinceParameterTypeCode: number | null;
+  beneficiaryAccountTypeParameterType: string | null;
+  senderProvinceParameterTypeCode: number | null;
+  bankCityParameterTypeCode: number | null;
+  senderPostcodeParameterTypeCode: number | null;
+  senderCityAcceptSpecialCharacter: boolean | null;
+  senderRegencyParameterTypeCode: number | null;
+  senderOccupationParameterType: string | null;
+  senderNatureOfBusinessParameterTypeCode: number | null;
+  transactionChannel: string | null;
+  beneficiaryBankBranchNameParameterType: string | null;
+  beneficiaryCityParameterType: string | null;
+  beneficiaryBirthDateParameterType: string | null;
+  payoutCurrency: string | null;
+  beneficiaryRegencyAcceptSpecialCharacter: boolean | null;
+  beneficiaryContactNumberParameterTypeCode: number | null;
+  senderRegencyParameterType: string | null;
+  beneficiaryBankBranchNameParameterTypeCode: number | null;
+  beneficiaryRegencyParameterTypeCode: number | null;
+  beneficiaryCitizenshipParameterType: string | null;
+  bankPostcodeAcceptSpecialCharacter: boolean | null;
+}
+
+export interface GetParameterSettingApprovalListingOutputDTO {
+  editedBy: string | null;
+  editedDate: string | null;
+  solutionCode: number | null;
+  solution: string | null;
+  requisitionType: string | null;
+  payoutCurrencySettingCode: number | null;
+  issuerCode: string | null;
+  parameterSettingStatus: string | null;
+  approvalStatus: number | null;
+  finalApprovalStatusDescription: string | null;
+  requisitionTypeCode: number | null;
+  payoutCountry: string | null;
+  transactionChannelSettingCode: number | null;
+  createdDate: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCurrency: string | null;
+  transactionChannel: string | null;
+  issuerSettingCode: number | null;
+  approveDate: string | null;
+  finalApprovalStatus: number | null;
+  requisitionCode: string | null;
+  parameterSettingCode: number | null;
+  parameterSettingStatusCode: number | null;
+  createdBy: string | null;
+  approveBy: string | null;
+}
+
+export interface SPMFilterIssuerSettingDropdown {
+  issuerSettingCode: number | null;
+  issuerSettingStatusCode: number | null;
+  issuerCode: string | null;
+  bankName: string | null;
+}
+
+export interface EditEditTransactionLimitSettingRequisitionInputDTO {
+  payoutCountrySettingCode: number | null;
+  limitPerTransaction: any | null;
+  limitPerDaily: any | null;
+  limitPerWeekly: any | null;
+  solutionCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  limitPerMonthly: any | null;
+}
+
+export interface GetEditRoundingSettingRequisitionOutputDTO {
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+  requisitionRemarks: string | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  roundingTypeCode: number | null;
+  xValue: number | null;
+  createdBy: string | null;
+  approvalStatus: ApprovalStatusOutputDTO | null;
+  editorList: string[] | null;
+}
+
+export interface SaveRouteSettingsInputDTO {
+  bankValidation: boolean | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWalletCode: number | null;
+  solutionCode: number | null;
+  payoutCountrySettingCode: number | null;
+  issuerSettingCode: number | null;
+  pttSupplyPartnerWalletCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+}
+
+export interface GetPayoutOfferSettingsDropdownsOutputDTO {
+  payoutCountrySettingDropdowns: PayoutCountrySettingDropdown[] | null;
+  payoutCurrencySettingDropdowns: PayoutCurrencySettingDropdown[] | null;
+  transactionChannelSettingDropdowns: GetPOSTransactionChannelSettingDropdown[] | null;
+}
+
+export interface PutPayoutOfferSettingInputDTO {
+  payoutCountrySettingCode: number | null;
+  putPayoutOfferCurrencyInputDTO: PutPayoutOfferCurrencyInputDTO[] | null;
+}
+
+export interface BatchUploadDisplaySupplyPartnerManagementSettingsOutputDTO {
+  trangloEntity: string | null;
+  isSuccess: boolean | null;
+  supplyPartnerManagementSettingsBatchList: SupplyPartnerManagementSettingsBatchDisplayOutput[] | null;
+  solutionCode: number | null;
+}
+
+export interface GetAddedCurencyListOutputDTO {
+  currencyCode: string | null;
+  currencyDescription: string | null;
+}
+
+export interface PostPayoutOfferCurrencyInputDTO {
+  payoutCurrencySettingCode: number | null;
+  payoutOfferTransactionChannelInputDTO: PostPayoutOfferTransactionChannelInputDTO[] | null;
+}
+
+export interface EditEditSenderComplianceLimitSettingRequisitionInputDTO {
+  senderComplianceLimit: number | null;
+  remarks: string | null;
+}
+
+export interface GetIssuerSettingApprovalListingOutputDTO {
+  bankIssuerName: string | null;
+  approvalLevel: number | null;
+  approveBy: string | null;
+  approveDate: string | null;
+  editedBy: string | null;
+  requisitionTypeDescription: string | null;
+  editorList: string[] | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  solutions: string | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  editedDate: string | null;
+  finalApprovalStatus: number | null;
+  remark: string | null;
+  issuerSettingRequisitionCode: number | null;
+  createdBy: string | null;
+  createdDate: string | null;
+  approvalStatus: number | null;
+  finalApprovalStatusDescription: string | null;
+}
+
+export interface GroupingCategoryOutputDTO {
+  groupingCategoryCode: number | null;
+  description: string | null;
+}
+
+export interface GetSupplyPartnerWalletsDropdownOutputDTO {
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWalletName: string | null;
+  supplyPartnerWalletStatusCode: number | null;
+  partnerCode: number | null;
+}
+
+export interface FileOutputDTO {
+  file: string | null;
+  contentType: string | null;
+  fileName: string | null;
+}
+
+export interface GetBeneficiaryFilteredTransactionChannelListOutputDTO {
+  transactionChannelSettingCode: number | null;
+  transactionChannelSettingDescription: string | null;
+}
+
+export interface GetRouteSettingApprovalListingOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetRouteSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface BatchUploadDisplayIssuerSettingsOutputDTO {
+  trangloBusinessStatusCode: number | null;
+  isSuccess: boolean | null;
+  issuerSettingsBatchList: IssuerSettingsBatchDisplayOutput[] | null;
+  trangloConnectStatusCode: number | null;
+}
+
+export interface EditPayoutOfferCurrencyOutputDTO {
+  payoutCurrencyCode: string | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencyStatusDescription: string | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyStatusCode: number | null;
+  getPayoutOfferTransactionChannelOutputDTO: EditTransactionChannelOutputDTO[] | null;
+  isRemoved: boolean | null;
+  payoutOfferCurrencyRequisitionCode: number | null;
+}
+
+export interface GetIndividualSPMSettingOutputDTO {
+  issuerSettingCode: number | null;
+  issuerCode: string | null;
+  bankBranchCode: string | null;
+  bankBranchName: string | null;
+  supplyPartnerCode: number | null;
+  externalBankCode: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+  bankName: string | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  externalBankBranchCode: string | null;
+}
+
+export interface GetRouteSettingApprovalListingOutputDTO {
+  tplSupplyPartnerWallet: string | null;
+  pttSupplyPartnerWalletCode: number | null;
+  createdBy: string | null;
+  approveBy: string | null;
+  requisitionCode: string | null;
+  bankValidation: boolean | null;
+  tsbSupplyPartnerWallet: string | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannel: string | null;
+  issuerSettingCode: number | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWallet: string | null;
+  solutionCode: number | null;
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  pttSupplyPartnerWallet: string | null;
+  finalApprovalStatusDescription: string | null;
+  country: string | null;
+  issuerCode: string | null;
+  routeSettingCode: number | null;
+  solutionDescription: string | null;
+  requisitionTypeCode: number | null;
+  createdDate: string | null;
+  editedBy: string | null;
+  approvalStatus: number | null;
+  editedDate: string | null;
+  finalApprovalStatus: number | null;
+  currency: string | null;
+  telSupplyPartnerWalletCode: number | null;
+  approveDate: string | null;
+  requisitionTypeDescription: string | null;
+  currencyISO3: string | null;
+  bankIssuerName: string | null;
+  tsbSupplyPartnerWalletCode: number | null;
+}
+
+export interface ApproveComplianceSettingRequisitionOutputDTO {
+  requisitionCode: string | null;
+  approvalWorkflowResult: ApprovalWorkflowResult | null;
+}
+
+export interface GetRouteSettingsOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetRouteSettingsOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface RejectRequisition {
+  requisitionCode: string | null;
+  requisitionType: number | null;
+}
+
+export interface GetPayoutOfferSettingByCodeOutputDTOPagedResult {
+  results: GetPayoutOfferSettingByCodeOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface GetTransactionLimitSettingsOutputDTOPagedResult {
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetTransactionLimitSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+}
+
+export interface GetPOSTransactionChannelSettingDropdown {
+  transactionChannel: string | null;
+  transactionChannelSettingCode: number | null;
+  transactionChannelSettingStatusCode: number | null;
+}
+
+export interface EditAddParameterSettingRequisitionInputDTO {
+  billDueDateParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyParameterTypeCode: number | null;
+  beneficiaryCityParameterTypeCode: number | null;
+  beneficiaryCityAcceptSpecialCharacter: boolean | null;
+  beneficiaryCitizenshipParameterTypeCode: number | null;
+  senderRegencyParameterTypeCode: number | null;
+  senderRegencyAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountNumberParameterTypeCode: number | null;
+  beneficiaryAccountNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryAccountTypeParameterTypeCode: number | null;
+  senderCityAcceptSpecialCharacter: boolean | null;
+  senderEmailParameterTypeCode: number | null;
+  beneficiaryPostcodeAcceptSpecialCharacter: boolean | null;
+  bankPostcodeParameterTypeCode: number | null;
+  senderIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryIDTypeParameterTypeCode: number | null;
+  beneficiaryIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryBankBranchNameAcceptSpecialCharacter: boolean | null;
+  beneficiaryAddressParameterTypeCode: number | null;
+  beneficiaryProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyAcceptSpecialCharacter: boolean | null;
+  bankCityAcceptSpecialCharacter: boolean | null;
+  senderCityParameterTypeCode: number | null;
+  senderProvinceParameterTypeCode: number | null;
+  senderOccupationParameterTypeCode: number | null;
+  senderNatureOfBusinessParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeParameterTypeCode: number | null;
+  beneficiaryContactNumberParameterTypeCode: number | null;
+  bankProvinceAcceptSpecialCharacter: boolean | null;
+  senderPostcodeParameterTypeCode: number | null;
+  senderPostcodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryIDNumberParameterTypeCode: number | null;
+  beneficiaryBankBranchNameParameterTypeCode: number | null;
+  beneficiaryEmailParameterTypeCode: number | null;
+  beneficiaryAccountTypeAcceptSpecialCharacter: boolean | null;
+  bankProvinceParameterTypeCode: number | null;
+  senderAddressAcceptSpecialCharacter: boolean | null;
+  senderProvinceAcceptSpecialCharacter: boolean | null;
+  billNumberParameterTypeCode: number | null;
+  billStatementDateParameterTypeCode: number | null;
+  beneficiaryAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryProvinceParameterTypeCode: number | null;
+  beneficiaryPostcodeParameterTypeCode: number | null;
+  beneficiaryBirthDateParameterTypeCode: number | null;
+  bankCityParameterTypeCode: number | null;
+  bankPostcodeAcceptSpecialCharacter: boolean | null;
+}
+
+export interface RoundingTypesOutputDTO {
+  roundingTypeCode: number | null;
+  description: string | null;
+  requireXValue: boolean | null;
+}
+
+export interface RejectComplianceSettingRequisitionOutputDTO {
+  requisitionCode: string | null;
+  approvalWorkflowResult: ApprovalWorkflowResult | null;
+}
+
+export interface UpdatePayoutCurrencyStatusInputDTO {
+  remark: string | null;
+  activeStatusCode: number | null;
+  solutionCode: number | null;
+}
+
+export interface ActiveStatus {
+  name: string | null;
+  id: number | null;
+}
+
+export interface GetIndividualRouteSettingOutputDTO {
+  solutionDescription: string | null;
+  transactionChannel: string | null;
+  telPayoutOfferSettingStatusCode: number | null;
+  pttPayoutOfferSettingStatus: string | null;
+  telSupplyPartnerWallet: string | null;
+  pttSupplyPartnerWalletCode: number | null;
+  currency: string | null;
+  currencyISO3: string | null;
+  issuerSettingCode: number | null;
+  tsbPayoutOfferSettingStatusCode: number | null;
+  tsbPayoutOfferSettingStatus: string | null;
+  country: string | null;
+  transactionChannelSettingCode: number | null;
+  pttSupplyPartnerWallet: string | null;
+  solutionCode: number | null;
+  bankValidation: boolean | null;
+  tplSupplyPartnerWalletCode: number | null;
+  telSupplyPartnerWalletCode: number | null;
+  telPayoutOfferSettingStatus: string | null;
+  tsbSupplyPartnerWalletCode: number | null;
+  tplSupplyPartnerWallet: string | null;
+  tplPayoutOfferSettingStatusCode: number | null;
+  tplPayoutOfferSettingStatus: string | null;
+  routeSettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCountrySettingCode: number | null;
+  issuerCode: string | null;
+  tsbSupplyPartnerWallet: string | null;
+  pttPayoutOfferSettingStatusCode: number | null;
+}
+
+export interface PayoutCurrencySettingOutputDTOPagedResult {
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: PayoutCurrencySettingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+}
+
+export interface SupplyPartnerDropdown {
+  supplyPartnerCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerStatusCode: number | null;
+}
+
+export interface ProductSettingTypeOutputDTO {
+  productSettingTypeCode: number | null;
+  description: string | null;
+}
+
+export interface GetSenderComplianceLimitSettingRequisitionListingOutputDTOPagedResult {
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetSenderComplianceLimitSettingRequisitionListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+}
+
+export interface GetSenderComplianceLimitSettingsOutputDTOPagedResult {
+  lastRowOnPage: number | null;
+  results: GetSenderComplianceLimitSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+}
+
+export interface GetParameterSettingApprovalListingOutputDTOPagedResult {
+  results: GetParameterSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface PostPayoutOfferSettingStatusInputDTO {
+  remarks: string | null;
+}
+
+export interface GetSPMSettingDropdownOutputDTO {
+  transactionChannelSettingDropdowns: TransactionChannelSettingDropdown[] | null;
+  issuerSettingDropdowns: IssuerSettingDropdown[] | null;
+  supplyPartnerDropdowns: SupplyPartnerDropdown[] | null;
+  supplyPartnerWalletDropdowns: SupplyPartnerWalletDropdown[] | null;
+}
+
+export interface SupplyPartnerWalletDropdown {
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWalletName: string | null;
+  supplyPartnerWalletStatusCode: number | null;
+  supplyPartnerCode: number | null;
+}
+
+export interface GetIssuerSettingsFiltersOutputDTO {
+  bankIssuerNameFilters: BankIssuerNameFilter[] | null;
+  swiftCodeFilters: string[] | null;
+}
+
+export interface SPMFilterSupplyPartnerWalletDropdown {
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWalletStatusCode: number | null;
+  supplyPartnerWalletName: string | null;
+}
+
+export interface GetComplianceGroupingSettingRequisitionOutputDTO {
+  solutionDescription: string | null;
+  groupingCategoryCode: number | null;
+  transactionChannelSettingCode: number | null;
+  groupingTypeCode: number | null;
+  complianceGroupingSettingCode: number | null;
+  requisitionCode: string | null;
+  complianceRequisitionTypeCode: number | null;
+  solutionCode: number | null;
+  approvalStatus: ApprovalStatusOutputDTO | null;
+  complianceRequisitionTypeDescription: string | null;
+  editorList: string[] | null;
+}
+
+export interface BranchDTO {
+  supplyPartnerManagementSettingCode: number | null;
+  branchBranchCode: string | null;
+  branchCode: number | null;
+  externalBankBranchCode: string | null;
+}
+
+export interface PutPayoutOfferTransactionChannelInputDTO {
+  payoutOfferTransactionChannelCode: number | null;
+  transactionChannelSettingCode: number | null;
+  payoutOfferSettingStatusCode: number | null;
+}
+
+export interface GetTransactionChannelSettingOutputDTO {
+  transactionChannelSettingCode: number | null;
+  description: string | null;
+  transactionChannelStatusCode: number | null;
+}
+
+export interface Requisition {
+  requisitionCode: string | null;
+  requisitionType: number | null;
+}
+
+export interface TransactionChannelSettingListInputDTO {
+  transactionChannel: string | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+}
+
+export interface BranchInputDTO {
+  externalBankBranchCode: string | null;
+  supplyPartnerManagementSettingExternalBranchStatusCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+  branchBranchCode: string | null;
+  branchCode: number | null;
+}
+
+export interface RejectProductSettingRequisitionInputDTO {
+  requisitionGroupId: string | null;
+  requisitions: RejectRequisition[] | null;
+  otp: string | null;
+}
+
+export interface UpdateIssuerSettingStatusInputDTO {
+  remark: string | null;
+  activeStatusCode: number | null;
+  solutionCode: number | null;
+}
+
+export interface PostPayoutOfferSettingStatusOutputDTO {
+  payoutOfferSettingCode: number | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+  remarks: string | null;
+  payoutOfferSettingRequisitionCode: number | null;
+}
+
+export interface GetComplianceGroupingSettingApprovalListingOutputDTOPagedResult {
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetComplianceGroupingSettingApprovalListingOutputDTO[] | null;
+}
+
+export interface ApproveComplianceRequisition {
+  requisitionCode: string | null;
+  complianceRequisitionType: number | null;
+}
+
+export interface ApprovalStatusOutputDTO {
+  approvalStatusCode: number | null;
+  description: string | null;
+}
+
+export interface GetIssuerSettingApprovalListingOutputDTOPagedResult {
+  results: GetIssuerSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+}
+
+export interface TransactionChannelSettingInputDTO {
+  transactionChannelSettingList: TransactionChannelSettingListInputDTO[] | null;
+}
+
+export interface PutPayoutOfferSettingOutputDTO {
+  requisitionTypeName: string | null;
+  payoutOfferSettingCode: number | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountrySettingCode: number | null;
+  payoutOfferSettingRequisitionCode: number | null;
+  requisitionCode: string | null;
+  requisitionTypeCode: number | null;
+}
+
+export interface ActionResult {
+}
+
+export interface GroupingType {
+  solution: Solution | null;
+  groupingCategory: GroupingCategory | null;
+  name: string | null;
+  id: number | null;
+}
+
+export interface SolutionStatus {
+  solutionCode: number | null;
+  solutionDesc: string | null;
+  status: number | null;
+}
+
+export interface ApproveBeneficiaryComplianceRequisition {
+  requisitionCode: string | null;
+  complianceRequisitionType: number | null;
+}
+
+export interface SPMBranch {
+  supplyPartnerManagementSettingExternalBranchStatusDescription: string | null;
+  issuerSettingCode: number | null;
+  branchCode: number | null;
+  bankBranchCode: string | null;
+  bankBranchName: string | null;
+  externalBankBranchCode: string | null;
+  supplyPartnerManagementSettingExternalBranchStatusCode: number | null;
+}
+
+export interface ApproveBeneficiaryComplianceSettingRequisitionInputDTO {
+  requisitionGroupId: string | null;
+  requisitions: ApproveBeneficiaryComplianceRequisition[] | null;
+  otp: string | null;
+}
+
+export interface SaveTransactionLimitSettingInputDTO {
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  limitPerDaily: any | null;
+  limitPerWeekly: any | null;
+  payoutCountrySettingCode: number | null;
+  solutionCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  limitPerTransaction: any | null;
+  limitPerMonthly: any | null;
+  trangloEntity: string | null;
+}
+
+export interface GetComplianceRequisitionApprovedByUsersOutputDTO {
+  approvedBy: string | null;
+  userId: number | null;
+}
+
+export interface SaveBeneficiaryComplianceLimitSettingInputDTO {
+  beneficiaryTypeCodes: number[] | null;
+  beneficiaryComplianceLimit: number | null;
+  remarks: string | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  payoutCountryCode: number | null;
+  payoutCurrencyCode: number | null;
+  transactionChannelSettingCode: number | null;
+}
+
+export interface TLSupplyPartnerWalletDropdown {
+  supplyPartnerWalletName: string | null;
+  supplyPartnerCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  supplyPartnerWalletStatusCode: number | null;
+}
+
+export interface GetComplianceGroupingSettingsOutputDTOPagedResult {
+  lastRowOnPage: number | null;
+  results: GetComplianceGroupingSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+}
+
+export interface GetIssuerSettingBankBranchDropdownOutputDTO {
+  issuerSettingCode: number | null;
+  bankBranchCode: string | null;
+  bankBranchName: string | null;
+  issuerSettingStatusCode: number | null;
+}
+
+export interface EditRoundingSettingInputDTO {
+  payoutCountrySettingCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  roundingTypeCode: number | null;
+  xValue: number | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+}
+
+export interface ApprovalStatus {
+}
+
+export interface AddSPMSettingInputDTO {
+  issuerSettingCode: number | null;
+  issuerCode: string | null;
+  bankIssuerName: string | null;
+  supplyPartnerCode: number | null;
+  branches: BranchDTO[] | null;
+  trangloEntity: string | null;
+  solutionCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  externalBankCode: string | null;
+}
+
+export interface RejectComplianceRequisition {
+  complianceRequisitionType: number | null;
+  requisitionCode: string | null;
+}
+
+export interface TLSSupplyPartnerDropdown {
+  supplyPartnerCode: number | null;
+  supplyPartnerName: string | null;
+}
+
+export interface EditEditIssuerSettingRequisitionInputDTO {
+  bankIssuerName: string | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+  branchList: EditEditIssuerSettingBranchInputDTO[] | null;
+  removeBranchList: EditEditIssuerSettingBranchInputDTO[] | null;
+}
+
+export interface RoundingSettingRequisitionRequisitionEditResult {
+  error: string | null;
+  requisition: RoundingSettingRequisition | null;
+  isLocked: boolean | null;
+  lockedBy: string | null;
+  lockedSince: string | null;
+  isSuccess: boolean | null;
+  exception: any | null;
+}
+
+export interface GetPayoutOfferSettingApprovalListingOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetPayoutOfferSettingApprovalListingOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface SPMFilterSupplyPartnerDropdown {
+  supplyPartnerStatusCode: number | null;
+  supplyPartnerName: string | null;
+  supplyPartnerCode: number | null;
+}
+
+export interface GetIndividualRouteSettingWalletsOutputDTO {
+  tplSupplyPartnerWallets: GetIndividualRouteSettingWalletListOutputDTO[] | null;
+  isTELPayoutOfferSettingExist: boolean | null;
+  telSupplyPartnerWallets: GetIndividualRouteSettingWalletListOutputDTO[] | null;
+  isPTTPayoutOfferSettingExist: boolean | null;
+  pttSupplyPartnerWallets: GetIndividualRouteSettingWalletListOutputDTO[] | null;
+  isTSBPayoutOfferSettingExist: boolean | null;
+  tsbSupplyPartnerWallets: GetIndividualRouteSettingWalletListOutputDTO[] | null;
+  isTPLPayoutOfferSettingExist: boolean | null;
+}
+
+export interface GetTransactionLimitSettingFiltersOutputDTO {
+  supplyPartnerDropdowns: TLSupplyPartnerDropdown[] | null;
+  supplyPartnerWalletDropdowns: TLSupplyPartnerWalletDropdown[] | null;
+}
+
+export interface PayoutOfferCurrencyOutputDTO {
+  payoutOfferCurrencyRequisitionCode: number | null;
+  payoutCurrencyCode: string | null;
+  payoutCurrencyStatusDescription: string | null;
+  getPayoutOfferTransactionChannelOutputDTO: TransactionChannelOutputDTO[] | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencyStatusCode: number | null;
+  isRemoved: boolean | null;
+}
+
+export interface GetRequisitionSPMSettingFiltersOutputDTO {
+  requisitionSPMSettingFilters: string[] | null;
+}
+
+export interface GetParameterSettingsOutputDTOPagedResult {
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetParameterSettingsOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+}
+
+export interface GetPayoutOfferCurrencyOutputDTO {
+  getPayoutOfferTransactionChannelOutputDTO: GetPayoutOfferTransactionChannelOutputDTO[] | null;
+  payoutOfferSettingCode: number | null;
+  payoutOfferCurrencyCode: number | null;
+  payoutCurrencyDescription: string | null;
+  payoutCurrencySettingCode: number | null;
+  payoutCurrencyCode: string | null;
+  payoutCurrencyStatusCode: number | null;
+  payoutCurrencyStatusDescription: string | null;
+}
+
+export interface GetPayoutOfferSettingByRequisitionCodeOutputDTO {
+  payoutCountry: string | null;
+  payoutCurrencyAndTransactionChannels: PayoutCurrencyAndTransactionChannel[] | null;
+}
+
+export interface PayoutCurrencySettingListInputDTO {
+  currencyCode: string | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+}
+
+export interface GetFeeReversalSettingApprovalListingOutputDTO {
+  solution: string | null;
+  partnerName: string | null;
+  payoutCountry: string | null;
+  transactionChannelSettingCode: number | null;
+  createdDate: string | null;
+  editedDate: string | null;
+  finalApprovalStatus: number | null;
+  finalApprovalStatusDescription: string | null;
+  requisitionCode: string | null;
+  requisitionType: string | null;
+  partnerTypeCode: number | null;
+  partnerWalletCode: number | null;
+  partnerWalletName: string | null;
+  isReversal: boolean | null;
+  approveDate: string | null;
+  editedBy: string | null;
+  approvalStatus: number | null;
+  partnerType: string | null;
+  partnerCode: number | null;
+  createdBy: string | null;
+  feeReversalSettingCode: number | null;
+  solutionCode: number | null;
+  requisitionTypeCode: number | null;
+  payoutCountrySettingCode: number | null;
+  transactionChannel: string | null;
+  approveBy: string | null;
+}
+
+export interface GetSPMSettingsOutputDTOPagedResult {
+  pageCount: number | null;
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetSPMSettingsOutputDTO[] | null;
+  currentPage: number | null;
+}
+
+export interface EditEditParameterSettingRequisitionInputDTO {
+  bankPostcodeAcceptSpecialCharacter: boolean | null;
+  senderCityAcceptSpecialCharacter: boolean | null;
+  senderPostcodeParameterTypeCode: number | null;
+  senderRegencyAcceptSpecialCharacter: boolean | null;
+  senderEmailParameterTypeCode: number | null;
+  beneficiaryIDNumberParameterTypeCode: number | null;
+  beneficiaryBankBranchNameParameterTypeCode: number | null;
+  bankProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryCityAcceptSpecialCharacter: boolean | null;
+  billNumberParameterTypeCode: number | null;
+  billStatementDateParameterTypeCode: number | null;
+  beneficiaryIDTypeParameterTypeCode: number | null;
+  beneficiaryAccountNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyParameterTypeCode: number | null;
+  senderProvinceAcceptSpecialCharacter: boolean | null;
+  billDueDateParameterTypeCode: number | null;
+  beneficiaryAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryEmailParameterTypeCode: number | null;
+  senderPostcodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryContactNumberParameterTypeCode: number | null;
+  beneficiaryBirthDateParameterTypeCode: number | null;
+  bankProvinceParameterTypeCode: number | null;
+  senderCityParameterTypeCode: number | null;
+  beneficiaryIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryBankBranchCodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryAddressParameterTypeCode: number | null;
+  beneficiaryProvinceAcceptSpecialCharacter: boolean | null;
+  senderIDNumberAcceptSpecialCharacter: boolean | null;
+  senderOccupationParameterTypeCode: number | null;
+  beneficiaryPostcodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryCitizenshipParameterTypeCode: number | null;
+  beneficiaryAccountTypeParameterTypeCode: number | null;
+  beneficiaryAccountTypeAcceptSpecialCharacter: boolean | null;
+  bankCityParameterTypeCode: number | null;
+  beneficiaryBankBranchNameAcceptSpecialCharacter: boolean | null;
+  beneficiaryProvinceParameterTypeCode: number | null;
+  beneficiaryCityParameterTypeCode: number | null;
+  senderNatureOfBusinessParameterTypeCode: number | null;
+  bankCityAcceptSpecialCharacter: boolean | null;
+  bankPostcodeParameterTypeCode: number | null;
+  senderAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryPostcodeParameterTypeCode: number | null;
+  senderProvinceParameterTypeCode: number | null;
+  senderRegencyParameterTypeCode: number | null;
+  beneficiaryAccountNumberParameterTypeCode: number | null;
+  beneficiaryBankBranchCodeParameterTypeCode: number | null;
+  beneficiaryRegencyAcceptSpecialCharacter: boolean | null;
+}
+
+export interface EditAddSPMSettingRequisitionInputDTO {
+  supplyPartnerCode: number | null;
+  trangloEntity: string | null;
+  issuerCode: string | null;
+  issuerSettingCode: number | null;
+  bankIssuerName: string | null;
+  supplyPartnerWalletCode: number | null;
+  externalBankCode: string | null;
+  branches: BranchDTO[] | null;
+  solutionCode: number | null;
+  supplyPartnerManagementSettingCode: number | null;
+}
+
+export interface GetPayoutOfferSettingOutputDTO {
+  payoutCountryISO2: string | null;
+  payoutCountryDescription: string | null;
+  getPayoutOfferCurrencyOutputDTO: GetPayoutOfferCurrencyOutputDTO[] | null;
+  requisitionCode: string | null;
+  payoutCountrySettingCode: number | null;
+  payoutCountryStatusCode: number | null;
+  payoutCountryStatusDescription: string | null;
+  approvalStatus: number | null;
+  payoutOfferSettingCode: number | null;
+  approvalStatusCode: number | null;
+  approvalStatusDescription: string | null;
+}
+
+export interface CountryCurrencyOutputDTO {
+  currencyCode: string | null;
+  countryCurrencyMappingCode: number | null;
+  countryCodeISO2: string | null;
+  countryDescription: string | null;
+}
+
+export interface GetIssuerSettingBranchListOutputDTO {
+  remark1: string | null;
+  remark2: string | null;
+  branchStatusCode: string | null;
+  branchCode: number | null;
+  code: string | null;
+  name: string | null;
+  city: string | null;
+  swiftCode: string | null;
+}
+
+export interface SaveComplianceGroupingSettingOutputDTO {
+  requisitionCode: string | null;
+}
+
+export interface SaveParameterSettingsInputDTO {
+  senderEmailParameterTypeCode: number | null;
+  beneficiaryIDNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryBankBranchCodeParameterTypeCode: number | null;
+  beneficiaryPostcodeParameterTypeCode: number | null;
+  beneficiaryPostcodeAcceptSpecialCharacter: boolean | null;
+  beneficiaryBirthDateParameterTypeCode: number | null;
+  bankPostcodeAcceptSpecialCharacter: boolean | null;
+  billStatementDateParameterTypeCode: number | null;
+  transactionChannelSettingCode: number | null;
+  beneficiaryAccountNumberAcceptSpecialCharacter: boolean | null;
+  beneficiaryRegencyParameterTypeCode: number | null;
+  beneficiaryRegencyAcceptSpecialCharacter: boolean | null;
+  senderAddressAcceptSpecialCharacter: boolean | null;
+  senderProvinceAcceptSpecialCharacter: boolean | null;
+  bankProvinceParameterTypeCode: number | null;
+  senderRegencyParameterTypeCode: number | null;
+  solutionCode: number | null;
+  issuerSettingCode: number | null;
+  beneficiaryBankBranchNameParameterTypeCode: number | null;
+  beneficiaryAddressParameterTypeCode: number | null;
+  beneficiaryAddressAcceptSpecialCharacter: boolean | null;
+  beneficiaryProvinceParameterTypeCode: number | null;
+  billDueDateParameterTypeCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  beneficiaryIDTypeParameterTypeCode: number | null;
+  beneficiaryBankBranchNameAcceptSpecialCharacter: boolean | null;
+  beneficiaryBankBranchCodeAcceptSpecialCharacter: boolean | null;
+  senderRegencyAcceptSpecialCharacter: boolean | null;
+  billNumberParameterTypeCode: number | null;
+  payoutCountrySettingCode: number | null;
+  beneficiaryAccountNumberParameterTypeCode: number | null;
+  beneficiaryContactNumberParameterTypeCode: number | null;
+  senderIDNumberAcceptSpecialCharacter: boolean | null;
+  senderCityParameterTypeCode: number | null;
+  senderPostcodeAcceptSpecialCharacter: boolean | null;
+  senderProvinceParameterTypeCode: number | null;
+  senderOccupationParameterTypeCode: number | null;
+  beneficiaryCityParameterTypeCode: number | null;
+  beneficiaryCitizenshipParameterTypeCode: number | null;
+  bankCityParameterTypeCode: number | null;
+  bankCityAcceptSpecialCharacter: boolean | null;
+  bankPostcodeParameterTypeCode: number | null;
+  senderCityAcceptSpecialCharacter: boolean | null;
+  senderNatureOfBusinessParameterTypeCode: number | null;
+  beneficiaryIDNumberParameterTypeCode: number | null;
+  beneficiaryAccountTypeAcceptSpecialCharacter: boolean | null;
+  senderPostcodeParameterTypeCode: number | null;
+  beneficiaryProvinceAcceptSpecialCharacter: boolean | null;
+  beneficiaryCityAcceptSpecialCharacter: boolean | null;
+  beneficiaryEmailParameterTypeCode: number | null;
+  beneficiaryAccountTypeParameterTypeCode: number | null;
+  bankProvinceAcceptSpecialCharacter: boolean | null;
+}
+
+export interface UpdateTransactionLimitSettingInputDTO {
+  limitPerTransaction: any | null;
+  limitPerDaily: any | null;
+  trangloEntity: string | null;
+  payoutCountrySettingCode: number | null;
+  transactionChannelSettingCode: number | null;
+  supplyPartnerWalletCode: number | null;
+  limitPerMonthly: any | null;
+  solutionCode: number | null;
+  payoutCurrencySettingCode: number | null;
+  supplyPartnerCode: number | null;
+  limitPerWeekly: any | null;
+}
+
+export interface EditAddIssuerSettingRequisitionInputDTO {
+  bankIssuerName: string | null;
+  issuerCode: string | null;
+  swiftCode: string | null;
+  trangloConnectStatusCode: number | null;
+  trangloBusinessStatusCode: number | null;
+  branchList: EditAddIssuerSettingBranchInputDTO[] | null;
+  removeBranchList: EditAddIssuerSettingBranchInputDTO[] | null;
+}
+
+export interface GetSupplyPartnerManagementSettingListOutputDTOPagedResult {
+  pageSize: number | null;
+  rowCount: number | null;
+  firstRowOnPage: number | null;
+  lastRowOnPage: number | null;
+  results: GetSupplyPartnerManagementSettingListOutputDTO[] | null;
+  currentPage: number | null;
+  pageCount: number | null;
+}
+
+export interface BeneficiaryTypeOutputDTO {
+  beneficiaryTypeCode: number | null;
+  description: string | null;
+}
+

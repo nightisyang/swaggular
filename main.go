@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"strings"
 )
@@ -97,13 +98,39 @@ func preGenerateDTOs(components Components) {
 	for name, schema := range components.Schemas {
 		generateTypeScriptInterface(name, schema)
 	}
+
+	fmt.Println("DTOMap length:", len(DTOMap)) // Check how many DTOs were generated
+
+	writeDTOsToFile("dtos.txt")
+	fmt.Println("Finished writing to file...")
+}
+
+func writeDTOsToFile(filename string) {
+	fmt.Println("Attempting to create file:", filename)
+
+	file, err := os.Create(filename)
+	if err != nil {
+		fmt.Printf("Error creating file: %v\n", err)
+		return
+	}
+	defer file.Close()
+
+	for key, dto := range DTOMap {
+		fmt.Println("Writing DTO:", key) // Debugging: Print each DTO key being written
+		_, err := file.WriteString(dto)
+		if err != nil {
+			fmt.Printf("Error writing to file: %v\n", err)
+			return
+		}
+	}
+	fmt.Printf("DTOs successfully written to %s\n", filename)
 }
 
 // Function to generate TypeScript interfaces for DTOs, ensuring no duplicates.
 func generateTypeScriptInterface(name string, schema Schema) {
-	if _, exists := DTOMap[name]; exists {
-		return
-	}
+	// if _, exists := DTOMap[name]; exists {
+	// 	return
+	// }
 
 	var builder strings.Builder
 	builder.WriteString(fmt.Sprintf("export interface %s {\n", name))
@@ -423,6 +450,7 @@ const indexTemplate = `
             <button hx-get="/api-detail?api={{.FunctionName}}" hx-target="#details-{{.FunctionName}}" hx-swap="outerHTML">
                 {{.FunctionName}}
             </button>
+            <span>{{.Path}}</span>
             <div id="details-{{.FunctionName}}" style="margin-left: 20px;">
                 <!-- Details will be loaded here by htmx -->
             </div>
@@ -440,12 +468,12 @@ const apiDetailTemplate = `
     {{.API.QueryParamInterface}}
   {{end}}
 
-  {{.API.FunctionName}}({{if .API.Parameters}}{{.API.Parameters}}, {{end}}{{if .API.PayloadType}}payload: {{.API.PayloadType}}{{end}}{{if .API.HasQueryParams}}, queryParams: {{.API.FunctionName}}QueryParams{{end}}): Observable<{{.API.ResponseType}}> {
+  {{.API.FunctionName}}({{if .API.Parameters}}{{.API.Parameters}}, {{end}}{{if .API.PayloadType}}payload: {{.API.PayloadType}}{{end}}): Observable<{{.API.ResponseType}}> {
     {{if .API.HasQueryParams}}
       let params = httpParamBuilder(params) 
     {{end}}
     
-    return this.http.{{if .API.PayloadType}}put<{{.API.ResponseType}}>("{{.API.Path}}", payload {{if .API.HasQueryParams}}, { params } {{end}} ){{else}}get<{{.API.ResponseType}}>("{{.API.Path}}", { params }){{end}};
+    return this.http.{{if .API.PayloadType}}put<{{.API.ResponseType}}>("{{.API.Path}}", payload {{if .API.HasQueryParams}}, { params } {{end}} ){{else}}get<{{.API.ResponseType}}>("{{.API.Path}}", {{if .API.HasQueryParams}} { params } {{end}}){{end}};
   }
 </pre>
 {{range .DTOs}}
