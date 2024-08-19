@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -403,7 +404,18 @@ func createFunctionName(operationID string) string {
 
 func initializeData() {
 	// Read the swagger.json file
-	data, err := ioutil.ReadFile("swagger.json")
+
+	executablePath, err := os.Executable()
+	if err != nil {
+		log.Fatalf("Error determining executable path: %v", err)
+	}
+	executableDir := filepath.Dir(executablePath)
+
+	// Construct the full path to swagger.json
+	swaggerPath := filepath.Join(executableDir, "swagger.json")
+
+	// Read the swagger.json file
+	data, err := ioutil.ReadFile(swaggerPath)
 	if err != nil {
 		log.Fatalf("Error reading swagger.json: %v", err)
 	}
