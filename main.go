@@ -66,7 +66,11 @@ type Components struct {
 var processedRefs = map[string]bool{}
 
 // DTOMap stores all generated DTOs, keyed by their names.
-var DTOMap = make(map[string]string)
+var (
+	DTOMap             = make(map[string]string)
+	precomputedDTOs    map[string]string
+	precomputedAPIList []APIWithDTO
+)
 
 // Function to map OpenAPI schema types to TypeScript types.
 func mapType(schema Schema) string {
@@ -166,6 +170,9 @@ func generateTypeScriptInterface(name string, schema Schema) {
 func collectAllDTOs(name string) []string {
 	var collectedDTOs []string
 
+	// Remove array notation if present
+	baseName := strings.TrimSuffix(name, "[]")
+
 	// Track processed DTOs to avoid duplication
 	processed := map[string]bool{}
 
@@ -188,7 +195,7 @@ func collectAllDTOs(name string) []string {
 		}
 	}
 
-	collect(name)
+	collect(baseName)
 	return collectedDTOs
 }
 
@@ -303,29 +310,12 @@ type TemplateData struct {
 }
 
 func serveIndex(w http.ResponseWriter, r *http.Request) {
-	data, err := ioutil.ReadFile("swagger.json")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	// Use the precomputed API list
+	tmplData := TemplateData{APIList: precomputedAPIList}
 
-	var openAPI OpenAPI
-	err = json.Unmarshal(data, &openAPI)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	// Pre-generate all DTOs
-	preGenerateDTOs(openAPI.Components)
-
-	// Generate the API list with the updated query parameters and other details
-	apiList := generateAPIList(openAPI)
-	tmplData := TemplateData{APIList: apiList}
-
-	// Parse and execute the template with the generated API list
+	// Parse and execute the template with the precomputed API list
 	tmpl := template.Must(template.New("index").Parse(indexTemplate))
-	err = tmpl.Execute(w, tmplData)
+	err := tmpl.Execute(w, tmplData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -334,22 +324,9 @@ func serveIndex(w http.ResponseWriter, r *http.Request) {
 func serveAPIDetails(w http.ResponseWriter, r *http.Request) {
 	apiName := r.URL.Query().Get("api")
 
-	data, err := ioutil.ReadFile("swagger.json")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	var openAPI OpenAPI
-	err = json.Unmarshal(data, &openAPI)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	apiList := generateAPIList(openAPI)
+	// Use the precomputed API list
 	var selectedAPI *APIWithDTO
-	for _, api := range apiList {
+	for _, api := range precomputedAPIList {
 		if api.FunctionName == apiName {
 			selectedAPI = &api
 			break
@@ -373,7 +350,7 @@ func serveAPIDetails(w http.ResponseWriter, r *http.Request) {
 			DTOs: dtos,
 		}
 
-		err = tmpl.Execute(w, apiDetail)
+		err := tmpl.Execute(w, apiDetail)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -424,8 +401,39 @@ func createFunctionName(operationID string) string {
 	return toCamelCase(operationID)
 }
 
+func initializeData() {
+	// Read the swagger.json file
+	data, err := ioutil.ReadFile("swagger.json")
+	if err != nil {
+		log.Fatalf("Error reading swagger.json: %v", err)
+	}
+
+	// Parse the JSON data
+	var openAPI OpenAPI
+	err = json.Unmarshal(data, &openAPI)
+	if err != nil {
+		log.Fatalf("Error unmarshalling swagger.json: %v", err)
+	}
+
+	// Pre-generate all DTOs
+	precomputedDTOs = make(map[string]string)
+	for name, schema := range openAPI.Components.Schemas {
+		generateTypeScriptInterface(name, schema)
+	}
+	fmt.Println("Finished pre-generating DTOs")
+
+	// Precompute the API list
+	precomputedAPIList = generateAPIList(openAPI)
+	fmt.Println("Finished pre-generating API list")
+
+	// Optionally, write DTOs to file
+	writeDTOsToFile("dtos.txt")
+}
+
 // Main function to start the server and serve the pages.
 func main() {
+	initializeData()
+
 	http.HandleFunc("/", serveIndex)
 	http.HandleFunc("/api-detail", serveAPIDetails)
 
