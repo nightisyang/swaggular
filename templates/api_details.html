@@ -1,0 +1,19 @@
+<pre style="white-space: none;">
+    {{if .API.HasQueryParams}}
+      {{.API.QueryParamInterface}}
+    {{end}}
+  
+    {{.API.FunctionName}}({{if .API.Parameters}}{{.API.Parameters}}, {{end}}{{if .API.PayloadType}}payload: {{.API.PayloadType}}{{end}}): Observable<{{.API.ResponseType}}> {
+      {{if .API.HasQueryParams}}
+        let params = httpParamBuilder(params) 
+      {{end}}
+      
+      return this.http.{{.API.HttpMethod}}<{{.API.ResponseType}}>("this.baseUrl(){{.API.Path}}" {{if .API.PayloadType}}, payload{{end}}{{if .API.HasQueryParams}}, { params }{{end}});
+    }
+</pre>
+
+{{range .DTOs}}
+<pre>{{.}}</pre>
+{{else}}
+<pre>No DTOs available.</pre>
+{{end}}
