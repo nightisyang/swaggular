@@ -5,6 +5,7 @@ import (
 	Dtos "angular-service-builder/pkg/dtos"
 	Types "angular-service-builder/pkg/types"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"html/template"
 	"io/ioutil"
@@ -24,15 +25,40 @@ var (
 	precomputedAPIList []Types.APIWithDTO
 )
 
+var projectPath = ""
+
 // InitializeData initializes the data for the application.
 func InitializeData() {
-	executablePath, err := os.Executable()
-	if err != nil {
-		log.Fatalf("Error determining executable path: %v", err)
-	}
-	executableDir := filepath.Dir(executablePath)
+	// Use a flag to accept the path to the swagger.json file
+	projectPathFlag := flag.String("swagger", "", "Project path is required!")
+	flag.Parse()
+	swaggerPath := ""
 
-	swaggerPath := filepath.Join(executableDir, "swagger.json")
+	if *projectPathFlag == "" {
+		executablePath, err := os.Executable()
+		if err != nil {
+			log.Fatalf("Error determining executable path: %v", err)
+		}
+		executableDir := filepath.Dir(executablePath)
+		projectPath = executableDir
+		swaggerPath = filepath.Join(executableDir, "swagger.json")
+	} else {
+		projectPath = *projectPathFlag
+		swaggerPath = filepath.Join(projectPath, "swagger.json")
+	}
+
+	if _, err := os.Stat(swaggerPath); os.IsNotExist(err) {
+		// Fallback to a known default path
+		swaggerPath = os.TempDir() + "\\swagger.json"
+	}
+
+	// Try opening the file at the determined path
+	file, err := os.Open(swaggerPath)
+	if err != nil {
+		log.Fatalf("Error opening swagger.json: %v", err)
+	}
+	defer file.Close()
+
 	data, err := ioutil.ReadFile(swaggerPath)
 	if err != nil {
 		log.Fatalf("Error reading swagger.json: %v", err)
@@ -82,13 +108,7 @@ func writeDTOsToFile(filename string) {
 func serveIndex(w http.ResponseWriter, r *http.Request) {
 	tmplData := Types.TemplateData{APIList: precomputedAPIList}
 
-	executablePath, executableErr := os.Executable()
-	if executableErr != nil {
-		log.Fatalf("Error determining executable path: %v", executableErr)
-	}
-	executableDir := filepath.Dir(executablePath)
-
-	indexHtmlFilePath := filepath.Join(executableDir, "templates", "index.html")
+	indexHtmlFilePath := filepath.Join(projectPath, "templates", "index.html")
 	tmpl := template.Must(template.ParseFiles(indexHtmlFilePath))
 
 	serveError := tmpl.Execute(w, tmplData)
