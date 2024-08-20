@@ -30,7 +30,7 @@ var projectPath = ""
 // InitializeData initializes the data for the application.
 func InitializeData() {
 	// Use a flag to accept the path to the swagger.json file
-	projectPathFlag := flag.String("swagger", "", "Project path is required!")
+	projectPathFlag := flag.String("projectPath", "", "Project path is required!")
 	flag.Parse()
 	swaggerPath := ""
 
