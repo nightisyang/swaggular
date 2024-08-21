@@ -1,44 +1,46 @@
 package main
 
 import (
+	Dtos "angular-service-builder/pkg/dtos"
+	Types "angular-service-builder/pkg/types"
 	"testing"
 )
 
 func TestGenerateTypeScriptInterface(t *testing.T) {
-	DTOMap = make(map[string]string) // Reset DTOMap before each test
+	Dtos.DTOMap = make(map[string]string) // Reset DTOMap before each test
 
-	schema := Schema{
+	schema := Types.Schema{
 		Type: "object",
-		Properties: map[string]Schema{
-			"transactionChannelSettingDropdowns": {Type: "array", Items: &Schema{Type: "object", Properties: map[string]Schema{
+		Properties: map[string]Types.Schema{
+			"transactionChannelSettingDropdowns": {Type: "array", Items: &Types.Schema{Type: "object", Properties: map[string]Types.Schema{
 				"id":   {Type: "string"},
 				"name": {Type: "string"},
 			}}},
-			"issuerSettingDropdowns": {Type: "array", Items: &Schema{Type: "object", Properties: map[string]Schema{
+			"issuerSettingDropdowns": {Type: "array", Items: &Types.Schema{Type: "object", Properties: map[string]Types.Schema{
 				"id":   {Type: "string"},
 				"name": {Type: "string"},
 			}}},
 		},
 	}
 
-	generateTypeScriptInterface("GetSPMSettingDropdownOutputDTO", schema)
+	Dtos.GenerateTypeScriptInterface("GetSPMSettingDropdownOutputDTO", schema)
 
-	if _, exists := DTOMap["GetSPMSettingDropdownOutputDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["GetSPMSettingDropdownOutputDTO"]; !exists {
 		t.Errorf("Expected GetSPMSettingDropdownOutputDTO to be generated")
 	}
 
-	if _, exists := DTOMap["transactionChannelSettingDropdownsDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["transactionChannelSettingDropdownsDTO"]; !exists {
 		t.Errorf("Expected transactionChannelSettingDropdownsDTO to be generated")
 	}
 
-	if _, exists := DTOMap["issuerSettingDropdownsDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["issuerSettingDropdownsDTO"]; !exists {
 		t.Errorf("Expected issuerSettingDropdownsDTO to be generated")
 	}
 }
 
 func TestCollectAllDTOs(t *testing.T) {
 	// Setup DTOMap with sample data
-	DTOMap = map[string]string{
+	Dtos.DTOMap = map[string]string{
 		"GetSPMSettingDropdownOutputDTO": `
 export interface GetSPMSettingDropdownOutputDTO {
   transactionChannelSettingDropdowns: TransactionChannelSettingDropdown[];
@@ -62,9 +64,9 @@ export interface IssuerSettingDropdown {
 	collectedDTOs := collectAllDTOs("GetSPMSettingDropdownOutputDTO")
 
 	expectedDTOs := []string{
-		DTOMap["GetSPMSettingDropdownOutputDTO"],
-		DTOMap["TransactionChannelSettingDropdown"],
-		DTOMap["IssuerSettingDropdown"],
+		Dtos.DTOMap["GetSPMSettingDropdownOutputDTO"],
+		Dtos.DTOMap["TransactionChannelSettingDropdown"],
+		Dtos.DTOMap["IssuerSettingDropdown"],
 	}
 
 	for _, expectedDTO := range expectedDTOs {
@@ -85,21 +87,21 @@ func containsString(slice []string, item string) bool {
 
 func TestGenerateTypeScriptInterfaceForGetParameterSettings(t *testing.T) {
 	// Reset DTOMap before each test
-	DTOMap = make(map[string]string)
+	Dtos.DTOMap = make(map[string]string)
 
 	// Define the schema for GetParameterSettingsOutputDTOPagedResult
-	schema := Schema{
+	schema := Types.Schema{
 		Type: "object",
-		Properties: map[string]Schema{
+		Properties: map[string]Types.Schema{
 			"currentPage":    {Type: "number"},
 			"pageCount":      {Type: "number"},
 			"pageSize":       {Type: "number"},
 			"rowCount":       {Type: "number"},
 			"firstRowOnPage": {Type: "number"},
 			"lastRowOnPage":  {Type: "number"},
-			"results": {Type: "array", Items: &Schema{
+			"results": {Type: "array", Items: &Types.Schema{
 				Type: "object",
-				Properties: map[string]Schema{
+				Properties: map[string]Types.Schema{
 					"id":                {Type: "number"},
 					"name":              {Type: "string"},
 					"settingType":       {Type: "string"},
@@ -111,15 +113,15 @@ func TestGenerateTypeScriptInterfaceForGetParameterSettings(t *testing.T) {
 	}
 
 	// Generate the TypeScript interface for the schema
-	generateTypeScriptInterface("GetParameterSettingsOutputDTOPagedResult", schema)
+	Dtos.GenerateTypeScriptInterface("GetParameterSettingsOutputDTOPagedResult", schema)
 
 	// Check that GetParameterSettingsOutputDTOPagedResult is generated
-	if _, exists := DTOMap["GetParameterSettingsOutputDTOPagedResult"]; !exists {
+	if _, exists := Dtos.DTOMap["GetParameterSettingsOutputDTOPagedResult"]; !exists {
 		t.Errorf("Expected GetParameterSettingsOutputDTOPagedResult to be generated")
 	}
 
 	// Check that GetParameterSettingsOutputDTO (nested DTO) is generated
-	if _, exists := DTOMap["resultsDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["resultsDTO"]; !exists {
 		t.Errorf("Expected GetParameterSettingsOutputDTO to be generated as resultsDTO")
 	}
 }
@@ -127,22 +129,22 @@ func TestGenerateTypeScriptInterfaceForGetParameterSettings(t *testing.T) {
 // Test for generating and storing all related DTOs
 func TestGenerateTypeScriptInterfaceForTransactionLimitSettingFilters(t *testing.T) {
 	// Reset DTOMap before each test
-	DTOMap = make(map[string]string)
+	Dtos.DTOMap = make(map[string]string)
 
 	// Define the schema for GetTransactionLimitSettingFiltersOutputDTO
-	schema := Schema{
+	schema := Types.Schema{
 		Type: "object",
-		Properties: map[string]Schema{
-			"supplyPartnerDropdowns": {Type: "array", Items: &Schema{
+		Properties: map[string]Types.Schema{
+			"supplyPartnerDropdowns": {Type: "array", Items: &Types.Schema{
 				Type: "object",
-				Properties: map[string]Schema{
+				Properties: map[string]Types.Schema{
 					"id":   {Type: "string"},
 					"name": {Type: "string"},
 				},
 			}},
-			"supplyPartnerWalletDropdowns": {Type: "array", Items: &Schema{
+			"supplyPartnerWalletDropdowns": {Type: "array", Items: &Types.Schema{
 				Type: "object",
-				Properties: map[string]Schema{
+				Properties: map[string]Types.Schema{
 					"id":   {Type: "string"},
 					"name": {Type: "string"},
 				},
@@ -151,19 +153,19 @@ func TestGenerateTypeScriptInterfaceForTransactionLimitSettingFilters(t *testing
 	}
 
 	// Generate the TypeScript interface for the schema
-	generateTypeScriptInterface("GetTransactionLimitSettingFiltersOutputDTO", schema)
+	Dtos.GenerateTypeScriptInterface("GetTransactionLimitSettingFiltersOutputDTO", schema)
 
 	// Check that the main DTO is generated
-	if _, exists := DTOMap["GetTransactionLimitSettingFiltersOutputDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["GetTransactionLimitSettingFiltersOutputDTO"]; !exists {
 		t.Errorf("Expected GetTransactionLimitSettingFiltersOutputDTO to be generated")
 	}
 
 	// Check that the nested DTOs are generated
-	if _, exists := DTOMap["supplyPartnerDropdownsDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["supplyPartnerDropdownsDTO"]; !exists {
 		t.Errorf("Expected TLSupplyPartnerDropdownDTO to be generated as supplyPartnerDropdownsDTO")
 	}
 
-	if _, exists := DTOMap["supplyPartnerWalletDropdownsDTO"]; !exists {
+	if _, exists := Dtos.DTOMap["supplyPartnerWalletDropdownsDTO"]; !exists {
 		t.Errorf("Expected TLSupplyPartnerWalletDropdownDTO to be generated as supplyPartnerWalletDropdownsDTO")
 	}
 }
