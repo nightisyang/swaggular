@@ -76,7 +76,11 @@ func GenerateAPIList(api Types.OpenAPI) []Types.APIWithDTO {
 
 			for _, param := range operation.Parameters {
 				if param.In == "path" {
-					path = strings.Replace(path, fmt.Sprintf("{%s}", param.Name), fmt.Sprintf("${%s}", Dtos.ToCamelCase(param.Name)), -1)
+					paramAppend := fmt.Sprintf("${%s}", Dtos.ToCamelCase(param.Name))
+
+					if !strings.Contains(path, paramAppend) {
+						path = strings.Replace(path, fmt.Sprintf("{%s}", param.Name), paramAppend, -1)
+					}
 				}
 			}
 
